@@ -6,15 +6,15 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:32:40 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/18 22:38:10 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/18 22:57:51 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_strncmp(char *s1, char *s2, unsigned int n)
+int     ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-        unsigned int i;
+        size_t i;
 
         i = 0;
         if (n == 0)

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 22:12:24 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/18 22:39:33 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/18 23:15:48 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 size_t   ft_strlcpy(char *dest, const char *src, size_t size)
 {
-        int		i;
-        size_t	sz;
-        size_t	source;
+	size_t	i;
+	char 	*s;
+	char	*d;
 
-        sz = size;
-        i = 0;
-        source = 0;
-        while (sz > 1)
-        {
-                dest[i] = src[i];
-                i++;
-                sz--;
-        }
-        dest[size] = 0;
-        while (src[source] != 0)
-                source++;
-        source++;
-        return (source);
+	if (size == 0)
+		return((size_t)NULL);
+	i = 0;
+	s = (char *)src;
+	d = (char *)dest;
+	while ((i < size - 1) && (s[i] != 0))
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = 0;
+	i = 0;
+	while (src[i] != 0)
+		i++;
+	return (i);
 }
