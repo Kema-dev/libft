@@ -17,7 +17,9 @@ SRC =	ft_putchar.c \
 		*ft_memccpy.c \
 		*ft_memmove.c \
 		*ft_memchr.c \
-		ft_memcmp.c
+		ft_memcmp.c \
+		ft_strncmp.c \
+		ft_strlcpy.c
 
 
 OBJ = $(SRC:.c=.o)
