@@ -3,7 +3,8 @@ FLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
 SRC =	ft_putchar.c \
-		ft_strlen.c
+		ft_strlen.c \
+		ft_isalpha.c
 
 
 OBJ = $(SRC:.c=.o)
