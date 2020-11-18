@@ -4,7 +4,11 @@ NAME = libft.a
 
 SRC =	ft_putchar.c \
 		ft_strlen.c \
-		ft_isalpha.c
+		ft_isalpha.c \
+		ft_tolower.c \
+		ft_toupper.c \
+		ft_bzero.c \
+		*ft_memset.c
 
 
 OBJ = $(SRC:.c=.o)
