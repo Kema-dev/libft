@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 17:52:32 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 19:23:52 by jjourdan         ###   ########.fr       */
+/*   Created: 2020/11/19 19:06:36 by jjourdan          #+#    #+#             */
+/*   Updated: 2020/11/19 21:47:43 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*tab;
+	size_t			i;
+	size_t			j;
+	unsigned char	*str;
+	char			*out;
 
-	if (nmemb == 0)
-		return (NULL);
-	else if (size == 0)
+	str = (unsigned char *)s;
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	if (i > start + len)
+		i = start + len;
+	if (!(out = malloc(sizeof(char) * (i - start + 1))))
+		return ((char *)NULL);
+	while (j + start < i)
 	{
-		if (!(tab = malloc(0)))
-			return (NULL);
-		else
-			return (tab);
+		out[j] = str[j + start];
+		j++;
 	}
-	else if (!(tab = malloc(size * (nmemb + 1))))
-		return (NULL);
-	else
-		ft_memset(tab, 0, size * nmemb + 1);
-	return (tab);
+	out[j] = 0;
+	return (out);
 }

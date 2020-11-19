@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 17:08:26 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 17:50:56 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/19 19:25:38 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-	size_t	i;
-	size_t	pos;
-	char	*little;
-	char	*big;
+	size_t			i;
+	size_t			pos;
+	unsigned char	*little;
+	unsigned char	*big;
 
-	big = (char *)s1;
-	little = (char *)s2;
+	big = (unsigned char *)s1;
+	little = (unsigned char *)s2;
 	i = 0;
 	pos = 0;
 	if (little[0] == 0)
