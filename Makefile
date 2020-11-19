@@ -29,7 +29,8 @@ SRC =	ft_putchar.c \
 		*ft_calloc.c \
 		*ft_my_strjoin.c \
 		*ft_strcat.c \
-		*ft_substr.c
+		*ft_substr.c \
+		*ft_strjoin.c
 
 OBJ = $(SRC:.c=.o)
 
