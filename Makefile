@@ -25,7 +25,8 @@ SRC =	ft_putchar.c \
 		ft_strlcat.c \
 		*ft_strrchr.c \
 		*ft_strchr.c \
-		*ft_strnstr.c
+		*ft_strnstr.c \
+		*ft_calloc.c
 
 
 OBJ = $(SRC:.c=.o)
