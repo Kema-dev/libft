@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:06:11 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 23:25:03 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/19 23:27:47 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ char	**ft_split(const char *s, char c)
 	{
 		while (str[i] != c)
 			i++;
-		if (!(out[j] = malloc(sizeof(char *) * (nb_sep + 2))))
+		if (!(out[j] = malloc(sizeof(char *) * (i + 1))))
 			return ((char **) NULL);
 		ft_strlcpy(out[j], str, i);
+		out[j][i] = 0;
 		str += i;
 		i = 0;
 		j++;
 	}
+	out[j] = 0;
 	return (out);
 }
