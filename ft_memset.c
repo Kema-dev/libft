@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 13:38:53 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 18:30:16 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/19 18:38:29 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*p;
+	unsigned char	*p;
 
-	p = (char *)s;
+	p = (unsigned char *)s;
 	while (n > 0)
 	{
 		p[n - 1] = c;
