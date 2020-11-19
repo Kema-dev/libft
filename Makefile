@@ -30,7 +30,10 @@ SRC =	ft_putchar.c \
 		*ft_my_strjoin.c \
 		*ft_strcat.c \
 		*ft_substr.c \
-		*ft_strjoin.c
+		*ft_strjoin.c \
+		*ft_strtrim.c \
+		**ft_my_split.c \
+		**ft_split.c
 
 OBJ = $(SRC:.c=.o)
 
