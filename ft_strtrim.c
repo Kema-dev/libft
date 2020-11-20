@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 22:04:22 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 22:54:00 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/20 15:17:32 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char 			*str;
-	char 			*out;
-	size_t 			num;
+	char	*str;
+	char	*out;
+	size_t	num;
 
 	str = (char *)s1;
 	num = 0;

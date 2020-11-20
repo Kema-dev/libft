@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:06:11 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 15:07:56 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/20 15:26:43 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,32 @@ char	*fill_word(char *str, char *out, int len)
 	return (out);
 }
 
+char	**fill_tab_tab(char **out, char *str, char c, int nb_sep)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_sep + 1)
+	{
+		if (!(out[i] = malloc(sizeof(char) * (get_word_len(str, c) + 1))))
+			return ((char **)NULL);
+		out[i] = fill_word(str, out[i], get_word_len(str, c));
+		str += get_word_len(str, c);
+		while (str[0] == c)
+			str++;
+		i++;
+	}
+	out[i] = 0;
+	return (out);
+}
+
 char	**ft_split(const char *s, char c)
 {
-	int		i;
 	int		nb_sep;
 	char	*str;
 	char	**out;
 
 	str = (char *)s;
-	i = 0;
 	nb_sep = 0;
 	out = 0;
 	while (str[0] == c)
@@ -87,16 +104,6 @@ char	**ft_split(const char *s, char c)
 	nb_sep = sep_counter(s, c);
 	if ((!(out = malloc(sizeof(char *) * (nb_sep + 2)))))
 		return ((char **)NULL);
-	while (i < nb_sep + 1)
-	{
-		if (!(out[i] = malloc(sizeof(char) * (get_word_len(str, c) + 1))))
-			return ((char **)NULL);
-		out[i] = fill_word(str, out[i], get_word_len(str, c));
-		str += get_word_len(str, c);
-		while (str[0] == c)
-			str++;
-		i++;
-	}
-	out[i] = 0;
+	out = fill_tab_tab(out, str, c, nb_sep);
 	return (out);
 }

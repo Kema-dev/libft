@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:01:46 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 23:07:26 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/20 15:16:04 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,26 @@ int		ft_word_count(char *str, char *sep)
 	j = 0;
 	while (*str)
 	{
-	while (*str && ft_is_separator(str, sep))
-		str++;
-	i = ft_word_len(str, sep);
-	str += i;
-	if (i != 0)
-		j++;
+		while (*str && ft_is_separator(str, sep))
+			str++;
+		i = ft_word_len(str, sep);
+		str += i;
+		if (i != 0)
+			j++;
 	}
 	return (j);
 }
 
 char	*ft_word_copy(char *src, int n)
 {
-    char *dest;
+	char *dest;
 
-    if (!(dest = malloc((n + 1) * sizeof(char))))
-    	return (NULL);
-    dest[n] = '\0';
-    while (n--)
-    	dest[n] = src[n];
-    return (dest);
+	if (!(dest = malloc((n + 1) * sizeof(char))))
+		return (NULL);
+	dest[n] = '\0';
+	while (n--)
+		dest[n] = src[n];
+	return (dest);
 }
 
 char	**ft_my_split(char *str, char *charset)
