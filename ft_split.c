@@ -6,79 +6,97 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:06:11 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 00:39:57 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/20 15:07:56 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*next_word(char *str, char c)
+int		sep_counter(const char *s, char c)
 {
-	int	i;
+	int		pos;
+	int		nb_sep;
+	char	*str;
 
-	i = 0;
-	while (str[i] == c)
-		str++;
-	return (str);
-}
-
-int		count_sep(char *str, char c)
-{
-	int nb_sep;
-	int i;
-
+	str = (char *)s;
 	nb_sep = 0;
-	i = -1;
-	while (str[++i] != 0)
+	pos = 0;
+	while (str[pos] == c)
+		pos++;
+	while (str[pos] != 0)
 	{
-		if (str[i] == c)
+		if (str[pos] == c)
 		{
+			while (str[pos] == c)
+				pos++;
+			if (str[pos] == 0)
+				return (nb_sep);
 			nb_sep++;
-			while (str[i] == c)
-				i++;
+			pos--;
 		}
+		pos++;
 	}
 	return (nb_sep);
 }
 
+int		get_word_len(char *str, char c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != c)
+		i++;
+	return (i);
+}
+
+char	*fill_word(char *str, char *out, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		out[i] = str[i];
+		i++;
+	}
+	out[i] = 0;
+	return (out);
+}
+
 char	**ft_split(const char *s, char c)
 {
-	int		nb_sep;
 	int		i;
-	int		j;
+	int		nb_sep;
 	char	*str;
 	char	**out;
 
 	str = (char *)s;
-	str = next_word(str, c);
-	nb_sep = count_sep(str, c);
-	if (!(out = malloc(sizeof(char **) * (nb_sep + 2))))
-		return ((char **) NULL);
-	while ((j <= nb_sep) && (str[i] != 0))
+	i = 0;
+	nb_sep = 0;
+	out = 0;
+	while (str[0] == c)
+		str++;
+	if (str[0] == 0)
 	{
-		while ((str[i] != c) && (str[i] != 0))
-			i++;
-		if (!(out[j] = malloc(sizeof(char *) * (i + 1))))
-			return ((char **) NULL);
-		ft_strlcpy(out[j], str, i + 1);
-		str += i + 1;
-		i = 0;
-		str = next_word(str, c);
-		j++;
+		if ((!(out = malloc(sizeof(char *) * (2)))))
+			return ((char **)NULL);
+		out[0] = 0;
+		out[1] = 0;
+		return (out);
 	}
-	out[j] = 0;
-	
-	printf("%s\n", out[0]);
-	printf("%c\n", out[1]);
-	/*printf("%s\n", out[2]);
-	printf("%s\n", out[3]);*/
-	printf("%d\n", j);
-	printf("%d\n", nb_sep);
-	
+	nb_sep = sep_counter(s, c);
+	if ((!(out = malloc(sizeof(char *) * (nb_sep + 2)))))
+		return ((char **)NULL);
+	while (i < nb_sep + 1)
+	{
+		if (!(out[i] = malloc(sizeof(char) * (get_word_len(str, c) + 1))))
+			return ((char **)NULL);
+		out[i] = fill_word(str, out[i], get_word_len(str, c));
+		str += get_word_len(str, c);
+		while (str[0] == c)
+			str++;
+		i++;
+	}
+	out[i] = 0;
 	return (out);
-}
-
-int	main(void)
-{
-	ft_split("aaaaaaaaaaaaaaa", 'a');
 }
