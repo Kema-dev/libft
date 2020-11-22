@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 15:40:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 18:44:05 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 17:59:17 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		get_size(int n)
 {
 	int		size;
-	long 	num;
+	long	num;
 
 	size = 0;
 	num = n;
@@ -29,21 +29,49 @@ int		get_size(int n)
 	return (size + 1);
 }
 
-int		get_pow(int n)
+int		get_pow(long n)
 {
 	int		pow;
-	long 	num;
+	int		pow_ten;
 
 	pow = 0;
-	num = n;
-	if (num < 0)
-		num *= -1;
-	while (num >= 10)
+	pow_ten = 1;
+	while (n >= 10)
 	{
-		num /= 10;
+		n /= 10;
 		pow++;
 	}
-	return (pow);
+	while (pow != 0)
+	{
+		pow_ten *= 10;
+		pow--;
+	}
+	return (pow_ten);
+}
+
+char	*out_fill(char *out, long num, int neg, int n)
+{
+	int	last;
+	int	curr;
+
+	last = 0;
+	curr = 0;
+	if (neg == 1)
+	{
+		out[curr] = '-';
+		curr++;
+	}
+	while (curr != (get_size(n) - 1 + neg))
+	{
+		last = num / get_pow(num);
+		num -= last * get_pow(num);
+		out[curr] = last + 48;
+		curr++;
+	}
+	last = num / get_pow(num);
+	num -= last * get_pow(num);
+	out[curr] = last + 48;
+	return (out);
 }
 
 char	*ft_itoa(int n)
@@ -61,16 +89,8 @@ char	*ft_itoa(int n)
 	}
 	if (!(out = malloc(sizeof(char) * (get_size(num) + 1 + neg))))
 		return ((char *)NULL);
+	ft_memset(out, 0, get_size(num));
 	out[get_size(num)] = 0;
-	while (num - num % get_pow(num) * 10 > 0)
-	{
-		printf("%d\n", (num - (num % (get_pow(num) / 10) * get_pow(num))));
-		num /= 10;
-	}
+	out_fill(out, num, neg, n);
 	return (out);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_itoa(-123456));
 }
