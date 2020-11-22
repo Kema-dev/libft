@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:48:22 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 15:14:11 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 18:54:20 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	int i;
 	int j;

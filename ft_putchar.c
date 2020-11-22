@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 23:50:16 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/18 00:11:21 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 18:48:52 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(int c)
 {
 	write(1, &c, 1);
 }

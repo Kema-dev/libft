@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:06:11 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 15:26:43 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 19:30:31 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		sep_counter(const char *s, char c)
+static int		sep_counter(const char *s, char c)
 {
 	int		pos;
 	int		nb_sep;
@@ -39,7 +39,7 @@ int		sep_counter(const char *s, char c)
 	return (nb_sep);
 }
 
-int		get_word_len(char *str, char c)
+static int		get_word_len(char *str, char c)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ int		get_word_len(char *str, char c)
 	return (i);
 }
 
-char	*fill_word(char *str, char *out, int len)
+static char		*fill_word(char *str, char *out, int len)
 {
 	int	i;
 
@@ -63,7 +63,7 @@ char	*fill_word(char *str, char *out, int len)
 	return (out);
 }
 
-char	**fill_tab_tab(char **out, char *str, char c, int nb_sep)
+static char		**fill_tab_tab(char **out, char *str, char c, int nb_sep)
 {
 	int	i;
 
@@ -82,7 +82,7 @@ char	**fill_tab_tab(char **out, char *str, char c, int nb_sep)
 	return (out);
 }
 
-char	**ft_split(const char *s, char c)
+char			**ft_split(const char *s, char c)
 {
 	int		nb_sep;
 	char	*str;

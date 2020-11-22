@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:01:46 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 15:16:04 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 19:29:39 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_is_separator(char *str, char *sep)
+static int		ft_is_separator(char *str, char *sep)
 {
 	while (*sep)
 	{
@@ -22,7 +22,7 @@ int		ft_is_separator(char *str, char *sep)
 	return (0);
 }
 
-int		ft_word_len(char *str, char *sep)
+static int		ft_word_len(char *str, char *sep)
 {
 	int i;
 
@@ -32,7 +32,7 @@ int		ft_word_len(char *str, char *sep)
 	return (i);
 }
 
-int		ft_word_count(char *str, char *sep)
+static int		ft_word_count(char *str, char *sep)
 {
 	int i;
 	int j;
@@ -50,7 +50,7 @@ int		ft_word_count(char *str, char *sep)
 	return (j);
 }
 
-char	*ft_word_copy(char *src, int n)
+static char		*ft_word_copy(char *src, int n)
 {
 	char *dest;
 
@@ -62,7 +62,7 @@ char	*ft_word_copy(char *src, int n)
 	return (dest);
 }
 
-char	**ft_my_split(char *str, char *charset)
+char			**ft_my_split(char *str, char *charset)
 {
 	char	**c;
 	int		size;

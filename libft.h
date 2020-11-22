@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 23:09:27 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/22 18:22:23 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 19:05:16 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 size_t				ft_strlen(const char *s);
-void				ft_putchar(char c);
+void				ft_putchar(int c);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -39,12 +39,12 @@ size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 int					ft_atoi(const char *nptr);
 char				*ft_strdup(const char *s);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
-void				*ft_strrchr(const char *s, int c);
-void				*ft_strchr(const char *s, int c);
+char				*ft_strrchr(const char *s, int c);
+char				*ft_strchr(const char *s, int c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t len);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_my_strjoin(int size, char **strs, char *sep);
-char				*ft_strcat(char *dest, char *src);
+char				*ft_strcat(char *dest, const char *src);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);

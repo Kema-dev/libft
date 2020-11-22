@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 15:40:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/22 17:59:17 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 19:29:01 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_size(int n)
+static int		get_size(int n)
 {
 	int		size;
 	long	num;
@@ -29,7 +29,7 @@ int		get_size(int n)
 	return (size + 1);
 }
 
-int		get_pow(long n)
+static int		get_pow(long n)
 {
 	int		pow;
 	int		pow_ten;
@@ -49,7 +49,7 @@ int		get_pow(long n)
 	return (pow_ten);
 }
 
-char	*out_fill(char *out, long num, int neg, int n)
+static char		*out_fill(char *out, long num, int neg, int n)
 {
 	int	last;
 	int	curr;
@@ -74,7 +74,7 @@ char	*out_fill(char *out, long num, int neg, int n)
 	return (out);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	long	num;
 	int		neg;

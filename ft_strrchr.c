@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:23:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/19 15:52:18 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 19:05:48 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int i;
 
@@ -20,7 +20,7 @@ void	*ft_strrchr(const char *s, int c)
 	while (--i >= 0)
 	{
 		if (s[i] == c)
-			return ((void *)s + i);
+			return ((char *)s + i);
 	}
 	return (NULL);
 }
