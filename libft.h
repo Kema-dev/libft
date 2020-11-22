@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 23:09:27 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/20 15:40:51 by jjourdan         ###   ########.fr       */
+/*   Updated: 2020/11/22 18:22:23 by jjourdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 size_t				ft_strlen(const char *s);
 void				ft_putchar(char c);
@@ -50,5 +51,9 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_my_split(char *str, char *charset);
 char				**ft_split(const char *str, char charset);
 char				*ft_itoa(int n);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
 #endif
