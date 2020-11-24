@@ -6,16 +6,16 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 02:00:13 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 22:10:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		sep_counter(const char *s, char c)
+static size_t	sep_counter(const char *s, char c)
 {
-	int		pos;
-	int		nb_sep;
+	size_t	pos;
+	size_t	nb_sep;
 	char	*str;
 
 	str = (char *)s;
@@ -39,7 +39,7 @@ static int		sep_counter(const char *s, char c)
 	return (nb_sep);
 }
 
-static int		get_word_len(char *str, char c)
+static size_t	get_word_len(char *str, char c)
 {
 	int	i;
 
@@ -49,9 +49,9 @@ static int		get_word_len(char *str, char c)
 	return (i);
 }
 
-static char		*fill_word(char *str, char *out, int len)
+static char		*fill_word(char *str, char *out, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
@@ -63,9 +63,9 @@ static char		*fill_word(char *str, char *out, int len)
 	return (out);
 }
 
-static char		**fill_tab_tab(char **out, char *str, char c, int nb_sep)
+static char		**fill_tab_tab(char **out, char *str, char c, size_t nb_sep)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < nb_sep + 1)
@@ -84,7 +84,7 @@ static char		**fill_tab_tab(char **out, char *str, char c, int nb_sep)
 
 char			**ft_split(const char *s, char c)
 {
-	int		nb_sep;
+	size_t	nb_sep;
 	char	*str;
 	char	**out;
 

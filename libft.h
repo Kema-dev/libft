@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 02:01:54 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 22:04:11 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t len);
 void				*ft_calloc(size_t nmemb, size_t size);
-char				*ft_my_strjoin(int size, char **strs, char *sep);
+char				*ft_my_strjoin(size_t size, char **strs, char *sep);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);

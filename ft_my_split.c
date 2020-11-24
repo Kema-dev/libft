@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:59 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 01:59:00 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 22:00:26 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int		ft_is_separator(char *str, char *sep)
 	return (0);
 }
 
-static int		ft_word_len(char *str, char *sep)
+static size_t	ft_word_len(char *str, char *sep)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] && (ft_is_separator(str + i, sep) == 0))
@@ -32,10 +32,10 @@ static int		ft_word_len(char *str, char *sep)
 	return (i);
 }
 
-static int		ft_word_count(char *str, char *sep)
+static size_t	ft_word_count(char *str, char *sep)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	j = 0;
 	while (*str)
@@ -50,7 +50,7 @@ static int		ft_word_count(char *str, char *sep)
 	return (j);
 }
 
-static char		*ft_word_copy(char *src, int n)
+static char		*ft_word_copy(char *src, size_t n)
 {
 	char *dest;
 
@@ -65,9 +65,9 @@ static char		*ft_word_copy(char *src, int n)
 char			**ft_my_split(char *str, char *charset)
 {
 	char	**c;
-	int		size;
-	int		i;
-	int		j;
+	size_t	size;
+	size_t	i;
+	size_t	j;
 
 	size = ft_word_count(str, charset);
 	if (!(c = malloc((size + 1) * sizeof(char *))))

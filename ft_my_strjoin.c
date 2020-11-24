@@ -6,18 +6,18 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:59:06 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 01:59:07 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 22:04:50 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_my_strjoin(int size, char **strs, char *sep)
+char	*ft_my_strjoin(size_t size, char **strs, char *sep)
 {
 	char	*rtrn;
-	int		i;
-	int		j;
-	int		total_len;
+	size_t	i;
+	size_t	j;
+	size_t	total_len;
 
 	i = 0;
 	j = -1;

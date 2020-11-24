@@ -6,15 +6,15 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:09 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 14:50:44 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 21:55:03 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_size(int n)
+static size_t	get_size(int n)
 {
-	int		size;
+	size_t	size;
 	long	num;
 
 	size = 0;
@@ -29,10 +29,10 @@ static int		get_size(int n)
 	return (size + 1);
 }
 
-static int		get_pow(long n)
+static size_t	get_pow(long n)
 {
-	int		pow;
-	int		pow_ten;
+	size_t	pow;
+	size_t	pow_ten;
 
 	pow = 0;
 	pow_ten = 1;
@@ -51,8 +51,8 @@ static int		get_pow(long n)
 
 static char		*out_fill(char *out, long num, int neg, int n)
 {
-	int	last;
-	int	curr;
+	size_t	last;
+	size_t	curr;
 
 	last = 0;
 	curr = 0;
