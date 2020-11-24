@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/23 14:00:47 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/24 22:44:41 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRC =	ft_putchar.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
+		*ft_strmapi.c
 
 OBJ = $(SRC:.c=.o)
 

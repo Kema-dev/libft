@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/24 22:04:11 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 22:44:30 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
