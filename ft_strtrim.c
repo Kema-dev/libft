@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:55:46 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/24 22:07:59 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 22:37:11 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,16 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
+	size_t	size;
 	char	*out;
-	size_t	num;
 
-	str = (char *)s1;
-	num = 0;
-	out = 0;
-	while ((str = ft_strnstr(str, 0, ft_strlen(str))))
-		num++;
-	if (!(malloc(sizeof(char) * (ft_strlen(s1) - (num * ft_strlen(set)) + 1))))
-		return ((char *)NULL);
-	out = ft_memset(out, 0, (ft_strlen(s1) - (num * ft_strlen(set)) + 1));
-	while ((str = ft_strnstr(str, 0, ft_strlen(str))))
-	{
-		out = ft_strcat(out, str + ft_strlen(set));
-	}
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	size = ft_strlen(s1);
+	while (size && ft_strrchr(set, s1[size]))
+		size--;
+	out = ft_substr((char*)s1, 0, size + 1);
 	return (out);
 }
