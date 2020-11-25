@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 13:11:56 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 19:18:04 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/25 18:55:42 by jjourdan          #+#    #+#             */
+/*   Updated: 2020/11/25 19:08:37 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
+	t_list	*buf;
+
+	if (!(buf = malloc(sizeof(t_list))))
+		return (NULL);
+	while (lst->next != 0)
+		lst = lst->next;
+	buf = lst;
+	return (buf);
 }

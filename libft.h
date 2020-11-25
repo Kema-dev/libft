@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 18:40:53 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 19:18:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstnew(void *content);
+t_list				*ft_lstlast(t_list *lst);
+void				ft_lstadd_back(t_list **alst, t_list *new);
 
 #endif
