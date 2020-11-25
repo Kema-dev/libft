@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/25 13:14:50 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/25 18:39:42 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,14 +57,15 @@ SRC			=	ft_putchar.c \
 OBJ			=	$(SRC:.c=.o)
 
 BONUS		=	ft_lstnew.c \
-				ft_lstadd_front.c
+				ft_lstadd_front.c \
+				ft_lstsize.c
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
 all:			$(NAME)
 
-$(NAME): $(OBJ)
-		@ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(BONUS_OBJ)
+		@ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
 		@echo "$(NAME) created"
 		@ranlib $(NAME)
 		@echo "$(NAME) indexed"
