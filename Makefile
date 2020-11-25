@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/25 19:01:22 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/25 19:19:21 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ BONUS		=	ft_lstnew.c \
 				ft_lstadd_front.c \
 				ft_lstsize.c \
 				ft_lstlast.c \
-				ft_lstadd_back.c
+				ft_lstadd_back.c \
+				ft_lstdelone.c
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
