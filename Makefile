@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/25 12:33:26 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/25 13:14:50 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ SRC			=	ft_putchar.c \
 
 OBJ			=	$(SRC:.c=.o)
 
-BONUS		=	ft_lstnew.c
+BONUS		=	ft_lstnew.c \
+				ft_lstadd_front.c
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
