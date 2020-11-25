@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 20:13:40 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 20:48:32 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-typedef struct	s_list
+typedef struct		s_list
 {
-void 			*content;
-struct s_list	*next;
-}				t_list;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 size_t				ft_strlen(const char *s);
 void				ft_putchar(int c);
@@ -69,5 +69,8 @@ t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void \
+						(*del)(void *));
 
 #endif

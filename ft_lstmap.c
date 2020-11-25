@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 19:00:39 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 20:43:46 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/25 20:21:24 by jjourdan          #+#    #+#             */
+/*   Updated: 2020/11/25 20:56:27 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*buf;
+	t_list	*copy;
+	t_list	*new;
 
-	if (alst == NULL)
-		return ;
-	buf = *alst;
-	if (*alst == NULL)
-		*alst = new;
-	else
+	if (!(lst || f))
+		return (NULL);
+	if (!(new = ft_lstnew(f(lst->content))))
+		return (NULL);
+	copy = new;
+	lst = lst->next;
+	while (lst)
 	{
-		while (buf->next)
-			buf = buf->next;
-		buf->next = new;
+		if (!(new = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&copy, del);
+			return (NULL);
+		}
+		lst = lst->next;
+		ft_lstadd_back(&copy, new);
 	}
+	return (copy);
 }
