@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/25 20:48:33 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/25 21:01:42 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,8 @@ BONUS_OBJ	=	$(BONUS:.c=.o)
 
 all:			$(NAME)
 
-$(NAME): $(OBJ) $(BONUS_OBJ)
-		@ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
+$(NAME): $(OBJ)
+		@ar rc $(NAME) $(OBJ)
 		@echo "$(NAME) created"
 		@ranlib $(NAME)
 		@echo "$(NAME) indexed"
