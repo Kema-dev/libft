@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/25 21:01:42 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/26 13:05:28 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,23 +72,20 @@ all:			$(NAME)
 
 $(NAME): $(OBJ)
 		@ar rc $(NAME) $(OBJ)
-		@echo "$(NAME) created"
 		@ranlib $(NAME)
-		@echo "$(NAME) indexed"
 
 %.o: %.c
 		@gcc $(FLAGS) -c $< -o $@
 
-bonus:			$(OBJS) $(BONUS_OBJ)
-		ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+bonus:			$(BONUS_OBJ)
+		@ar rc $(NAME) $(BONUS_OBJ)
+		@ranlib $(NAME)
 
 clean:
 		@rm -f $(OBJ) $(BONUS_OBJ)
-		@echo "OBJ and BONUS_OBJ cleaned"
 
 fclean:			clean
 		@rm -f $(NAME)
-		@echo "$(NAME) cleaned"
 
 re:				fclean all
 
