@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:09 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/24 21:55:03 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 17:31:40 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static size_t	get_size(int n)
 {
-	size_t	size;
-	long	num;
+	size_t		size;
+	long long	num;
 
 	size = 0;
 	num = n;
@@ -29,7 +29,7 @@ static size_t	get_size(int n)
 	return (size + 1);
 }
 
-static size_t	get_pow(long n)
+static size_t	get_pow(long long n)
 {
 	size_t	pow;
 	size_t	pow_ten;
@@ -49,24 +49,28 @@ static size_t	get_pow(long n)
 	return (pow_ten);
 }
 
-static char		*out_fill(char *out, long num, int neg, int n)
+static char		*out_fill(char *out, long long num, int neg, int n)
 {
 	size_t	last;
 	size_t	curr;
+	size_t	prev_pow;
 
 	last = 0;
 	curr = 0;
+	prev_pow = 0;
 	if (neg == 1)
 	{
 		out[curr] = '-';
 		curr++;
 	}
+	prev_pow = get_pow(num);
 	while (curr != (get_size(n) - 1 + neg))
 	{
-		last = num / get_pow(num);
-		num -= last * get_pow(num);
+		last = num / prev_pow;
+		num -= last * prev_pow;
 		out[curr] = last + 48;
 		curr++;
+		prev_pow /= 10;
 	}
 	last = num / get_pow(num);
 	num -= last * get_pow(num);
@@ -76,9 +80,9 @@ static char		*out_fill(char *out, long num, int neg, int n)
 
 char			*ft_itoa(int n)
 {
-	long	num;
-	int		neg;
-	char	*out;
+	long long	num;
+	int			neg;
+	char		*out;
 
 	num = n;
 	neg = 0;
@@ -90,7 +94,7 @@ char			*ft_itoa(int n)
 	if (!(out = malloc(sizeof(char) * (get_size(num) + 1 + neg))))
 		return ((char *)NULL);
 	ft_memset(out, 0, get_size(num));
-	out[get_size(num)] = 0;
+	out[get_size(num) + 1] = 0;
 	out_fill(out, num, neg, n);
 	return (out);
 }
