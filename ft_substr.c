@@ -6,22 +6,35 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:42 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/26 15:40:26 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 17:58:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*fill_out(size_t i, unsigned int start, unsigned char *str, \
+				char *out)
+{
+	size_t	j;
+
+	j = 0;
+	while (j + start < i)
+	{
+		out[j] = str[j + start];
+		j++;
+	}
+	out[j] = 0;
+	return (out);
+}
+
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t			i;
-	size_t			j;
 	unsigned char	*str;
 	char			*out;
 
 	str = (unsigned char *)s;
 	i = 0;
-	j = 0;
 	i = ft_strlen(s);
 	if (start >= i)
 	{
@@ -34,11 +47,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i = start + len;
 	if (!(out = malloc(sizeof(char) * (i - start + 1))))
 		return (NULL);
-	while (j + start < i)
-	{
-		out[j] = str[j + start];
-		j++;
-	}
-	out[j] = 0;
+	out = fill_out(i, start, str, out);
 	return (out);
 }
