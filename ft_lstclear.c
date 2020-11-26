@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:41:35 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 20:42:47 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 14:27:49 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 			*lst = buf;
 		}
 	}
-	else
-		return ;
 }
