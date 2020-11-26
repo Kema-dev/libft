@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:57:46 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 01:57:47 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 15:11:23 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isascii(int c)
 {
-	if ((unsigned char)c <= 127)
+	if ((c <= 127) && (c >= 0))
 		return (1);
 	return (0);
 }
