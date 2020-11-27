@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/11/26 13:05:28 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2020/11/27 12:13:39 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SRC			=	ft_putchar.c \
 				ft_strchr.c \
 				ft_strnstr.c \
 				ft_calloc.c \
-				ft_my_strjoin.c \
 				ft_strcat.c \
 				ft_substr.c \
 				ft_strjoin.c \

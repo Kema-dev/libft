@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/24 22:10:07 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 12:18:19 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char		**fill_tab_tab(char **out, char *str, char c, size_t nb_sep)
 	while (i < nb_sep + 1)
 	{
 		if (!(out[i] = malloc(sizeof(char) * (get_word_len(str, c) + 1))))
-			return ((char **)NULL);
+			return (NULL);
 		out[i] = fill_word(str, out[i], get_word_len(str, c));
 		str += get_word_len(str, c);
 		while (str[0] == c)
@@ -96,14 +96,14 @@ char			**ft_split(const char *s, char c)
 	if (str[0] == 0)
 	{
 		if ((!(out = malloc(sizeof(char *) * (2)))))
-			return ((char **)NULL);
+			return (NULL);
 		out[0] = 0;
 		out[1] = 0;
 		return (out);
 	}
 	nb_sep = sep_counter(s, c);
 	if ((!(out = malloc(sizeof(char *) * (nb_sep + 2)))))
-		return ((char **)NULL);
+		return (NULL);
 	out = fill_tab_tab(out, str, c, nb_sep);
 	return (out);
 }

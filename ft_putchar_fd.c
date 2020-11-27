@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:59:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 01:59:13 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 12:13:55 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	char	buf[1];
-
-	buf[0] = c;
-	write(fd, buf, 1);
+	write(fd, &c, 1);
 }
