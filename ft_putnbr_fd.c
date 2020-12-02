@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:59:59 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/27 12:18:22 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 14:26:58 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ void		ft_putnbr_fd(int n, int fd)
 		n = n / 10;
 		i++;
 	}
-	i--;
-	while (i >= 0)
-	{
+	while (--i >= 0)
 		ft_putchar_fd(c[i], fd);
-		i--;
-	}
 }
