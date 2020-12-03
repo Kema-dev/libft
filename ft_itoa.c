@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:09 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/26 18:08:09 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/03 14:32:17 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,8 @@ char			*ft_itoa(int n)
 		neg = 1;
 		num *= -1;
 	}
-	if (!(out = malloc(sizeof(char) * (get_size(num) + 1 + neg))))
+	if (!(out = ft_calloc(sizeof(char), (get_size(num) + 1 + neg))))
 		return ((char *)NULL);
-	ft_memset(out, 0, get_size(num));
-	out[get_size(num) + 1] = 0;
 	out_fill(out, num, neg, n);
 	return (out);
 }
