@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:15 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 01:58:15 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:41:54 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	unsigned char	*d;
 	unsigned char	*s;
 
+	if (!dest || !src)
+		return (NULL);
 	i = -1;
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;

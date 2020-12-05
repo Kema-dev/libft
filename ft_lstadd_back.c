@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:00:39 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 20:43:46 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:41:19 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*buf;
 
-	if (alst == NULL)
+	if (!new || !alst)
 		return ;
 	buf = *alst;
 	if (*alst == NULL)

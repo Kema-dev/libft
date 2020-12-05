@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:21 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/23 02:01:21 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:43:15 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	unsigned char	*little;
 	unsigned char	*big;
 
+	if (!s1 || !s2)
+		return (NULL);
 	big = (unsigned char *)s1;
 	little = (unsigned char *)s2;
 	i = 0;
@@ -37,5 +39,5 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 		pos++;
 		i = 0;
 	}
-	return ((char *)NULL);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 20:21:24 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 20:56:27 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:41:40 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*copy;
 	t_list	*new;
 
-	if (!(lst || f))
+	if (!lst || !f)
 		return (NULL);
 	if (!(new = ft_lstnew(f(lst->content))))
 		return (NULL);

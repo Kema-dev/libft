@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:42 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/26 17:58:07 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:43:25 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned char	*str;
 	char			*out;
 
+	if (!s)
+		return (NULL);
 	str = (unsigned char *)s;
 	i = 0;
 	i = ft_strlen(s);

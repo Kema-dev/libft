@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:56:08 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/02 14:23:26 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:40:32 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_atoi(const char *nptr)
 	int				neg;
 
 	neg = 1;
+	if (!nptr)
+		return (0);
 	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')

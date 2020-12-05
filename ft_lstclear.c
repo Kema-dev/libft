@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:41:35 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/26 14:27:49 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:41:25 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*buf;
 
-	if (lst)
+	if (!lst)
+		return ;
+	while (*lst)
 	{
-		while (*lst)
-		{
-			buf = (*lst)->next;
-			ft_lstdelone(*lst, del);
-			*lst = buf;
-		}
+		buf = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = buf;
 	}
 }

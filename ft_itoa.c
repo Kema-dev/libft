@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:09 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/03 14:32:17 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:41:13 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char			*ft_itoa(int n)
 		num *= -1;
 	}
 	if (!(out = ft_calloc(sizeof(char), (get_size(num) + 1 + neg))))
-		return ((char *)NULL);
+		return (NULL);
 	out_fill(out, num, neg, n);
 	return (out);
 }

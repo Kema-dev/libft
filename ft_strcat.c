@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/02 14:22:22 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:42:42 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ char	*ft_strcat(char *dest, const char *src)
 	size_t i;
 	size_t j;
 
+	if (!dest)
+		return (NULL);
+	else if (!src)
+		return (dest);
 	i = 0;
 	j = 0;
 	while (dest[i] != 0)

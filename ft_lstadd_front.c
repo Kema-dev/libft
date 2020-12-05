@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 13:11:56 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/11/25 19:18:04 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/05 15:41:22 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	if (alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
+	if (!alst || !new)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }
