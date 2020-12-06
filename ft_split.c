@@ -6,104 +6,96 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:42:38 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/06 13:18:10 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	sep_counter(const char *s, char c)
+static char			**ft_tab_free(char **tab)
 {
-	size_t	pos;
-	size_t	nb_sep;
-	char	*str;
+	size_t	i;
 
-	str = (char *)s;
-	nb_sep = 0;
-	pos = 0;
-	while (str[pos] == c)
-		pos++;
-	while (str[pos] != 0)
+	i = 0;
+	while (tab[i])
 	{
-		if (str[pos] == c)
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
+
+static size_t		ft_get_nb_strs(char const *s, char c)
+{
+	size_t	i;
+	size_t	nb_strs;
+
+	if (!s)
+		return (0);
+	i = 0;
+	nb_strs = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i])
+	{
+		if (s[i] == c)
 		{
-			while (str[pos] == c)
-				pos++;
-			if (str[pos] == 0)
-				return (nb_sep);
-			nb_sep++;
-			pos--;
+			nb_strs++;
+			while (s[i] && s[i] == c)
+				i++;
 		}
-		pos++;
+		else
+			i++;
 	}
-	return (nb_sep);
+	if (s[i - 1] != c)
+		nb_strs++;
+	return (nb_strs);
 }
 
-static size_t	get_word_len(char *str, char c)
+static void			ft_get_next_str(char **next_str, \
+						size_t *next_str_len, char c)
 {
-	int	i;
+	size_t i;
 
+	*next_str += *next_str_len;
+	*next_str_len = 0;
 	i = 0;
-	while (str[i] != c)
-		i++;
-	return (i);
-}
-
-static char		*fill_word(char *str, char *out, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < len)
+	while (**next_str && **next_str == c)
+		(*next_str)++;
+	while ((*next_str)[i])
 	{
-		out[i] = str[i];
-		i++;
-	}
-	out[i] = 0;
-	return (out);
-}
-
-static char		**fill_tab_tab(char **out, char *str, char c, size_t nb_sep)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < nb_sep + 1)
-	{
-		if (!(out[i] = malloc(sizeof(char) * (get_word_len(str, c) + 1))))
-			return (NULL);
-		out[i] = fill_word(str, out[i], get_word_len(str, c));
-		str += get_word_len(str, c);
-		while (str[0] == c)
-			str++;
+		if ((*next_str)[i] == c)
+			return ;
+		(*next_str_len)++;
 		i++;
 	}
-	out[i] = 0;
-	return (out);
 }
 
-char			**ft_split(const char *s, char c)
+char				**ft_split(char const *s, char c)
 {
-	size_t	nb_sep;
-	char	*str;
-	char	**out;
+	char			**tab;
+	char			*next_str;
+	size_t			next_str_len;
+	size_t			nb_strs;
+	size_t			i;
 
-	str = (char *)s;
-	nb_sep = 0;
-	out = 0;
-	while (str[0] == c)
-		str++;
-	if (str[0] == 0)
-	{
-		if ((!(out = malloc(sizeof(char *) * (2)))))
-			return (NULL);
-		out[0] = 0;
-		out[1] = 0;
-		return (out);
-	}
-	nb_sep = sep_counter(s, c);
-	if ((!(out = malloc(sizeof(char *) * (nb_sep + 2)))))
+	if (!s)
 		return (NULL);
-	out = fill_tab_tab(out, str, c, nb_sep);
-	return (out);
+	nb_strs = ft_get_nb_strs(s, c);
+	if (!(tab = ft_calloc(sizeof(char *), (nb_strs + 1))))
+		return (NULL);
+	i = 0;
+	next_str = (char *)s;
+	next_str_len = 0;
+	while (i < nb_strs)
+	{
+		ft_get_next_str(&next_str, &next_str_len, c);
+		if (!(tab[i] = ft_calloc(sizeof(char), (next_str_len + 1))))
+			return (ft_tab_free(tab));
+		ft_strlcpy(tab[i], next_str, next_str_len + 1);
+		i++;
+	}
+	tab[i] = NULL;
+	return (tab);
 }
