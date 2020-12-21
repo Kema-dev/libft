@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:08 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/21 14:03:40 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/21 14:39:34 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
