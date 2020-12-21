@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:40:37 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/21 13:50:34 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-#include <stddef.h> // ! remove
 
 typedef struct		s_list
 {

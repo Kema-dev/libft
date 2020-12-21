@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:21 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:43:15 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/21 14:00:27 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	{
 		while ((big[i] == little[i]) && (big[i] != 0) && (pos + i < len))
 		{
-			if (little[i + 1] == 0)
+			if (little[++i] == 0)
 				return ((char *)big);
-			i++;
 		}
 		big++;
 		pos++;
