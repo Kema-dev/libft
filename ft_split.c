@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/06 13:18:10 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/21 12:53:59 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t		ft_get_nb_strs(char const *s, char c)
 	size_t	i;
 	size_t	nb_strs;
 
-	if (!s)
+	if (!s[0])
 		return (0);
 	i = 0;
 	nb_strs = 0;

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:26 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:43:19 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2020/12/21 12:02:43 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	while (i != 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)s + i);
 		i--;
 	}
-	if (s[i] == c)
+	if (s[i] == (char)c)
 		return ((char *)s + i);
 	return (NULL);
 }
