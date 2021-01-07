@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2020/12/05 15:52:49 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/01/07 11:02:07 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,16 +67,16 @@ BONUS		=	ft_lstnew.c \
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
-HEADER		=	$(includes)
+HEADER		=	libft.h
 
 all:			$(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): 		$(OBJ)
 		@ar rc $(NAME) $(OBJ)
 		@ranlib $(NAME)
 
-%.o: %.c
-		@gcc $(FLAGS) -I./includes -c $< -o $@
+%.o: %.c	$(HEADER)
+		@gcc $(FLAGS) $(HEADER) -c $< -o $@
 
 bonus:			$(BONUS_OBJ)
 		@ar rc $(NAME) $(BONUS_OBJ)
