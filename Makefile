@@ -6,13 +6,17 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2021/01/07 11:02:07 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/01/08 13:11:31 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS		=	-Wall -Wextra -Werror
 
 NAME		=	libft.a
+
+CC			=	gcc
+
+HEADER		=	libft.h
 
 SRC			=	ft_putchar.c \
 				ft_strlen.c \
@@ -67,26 +71,24 @@ BONUS		=	ft_lstnew.c \
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
-HEADER		=	libft.h
-
 all:			$(NAME)
 
-$(NAME): 		$(OBJ)
-		@ar rc $(NAME) $(OBJ)
-		@ranlib $(NAME)
-
-%.o: %.c	$(HEADER)
-		@gcc $(FLAGS) $(HEADER) -c $< -o $@
+$(NAME): $(OBJ)
+		ar rc $(NAME) $(OBJ)
+		ranlib $(NAME)
 
 bonus:			$(BONUS_OBJ)
-		@ar rc $(NAME) $(BONUS_OBJ)
-		@ranlib $(NAME)
+		ar rc $(NAME) $(BONUS_OBJ)
+		ranlib $(NAME)
 
 clean:
-		@rm -f $(OBJ) $(BONUS_OBJ)
+		rm -f $(OBJ) $(BONUS_OBJ)
+
+%.o: %.c		$(HEADER)
+		$(CC) $(FLAGS) -c $< -o $@
 
 fclean:			clean
-		@rm -f $(NAME)
+		rm -f $(NAME)
 
 re:				fclean all
 
