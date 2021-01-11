@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/23 14:00:45 by jjourdan          #+#    #+#              #
-#    Updated: 2021/01/08 13:11:31 by jjourdan         ###   ########lyon.fr    #
+#    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
+#    Updated: 2021/01/11 11:32:10 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,15 +71,20 @@ BONUS		=	ft_lstnew.c \
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
+ifdef WITH_BONUS
+FULL_OBJ = $(OBJ) $(BONUS_OBJ)
+else
+FULL_OBJ = $(OBJ)
+endif
+
 all:			$(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(FULL_OBJ)
 		ar rc $(NAME) $(OBJ)
 		ranlib $(NAME)
 
-bonus:			$(BONUS_OBJ)
-		ar rc $(NAME) $(BONUS_OBJ)
-		ranlib $(NAME)
+bonus:
+		make WITH_BONUS=1 all
 
 clean:
 		rm -f $(OBJ) $(BONUS_OBJ)

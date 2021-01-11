@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/01/08 16:10:09 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/01/11 10:56:24 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static char			**ft_tab_free(char **tab)
 		free(tab[i]);
 		i++;
 	}
-	free(tab[i]);
 	free(tab);
 	return (NULL);
 }
