@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/01/11 11:32:10 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/01/11 11:55:39 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,20 +71,15 @@ BONUS		=	ft_lstnew.c \
 
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
-ifdef WITH_BONUS
-FULL_OBJ = $(OBJ) $(BONUS_OBJ)
-else
-FULL_OBJ = $(OBJ)
-endif
-
 all:			$(NAME)
 
-$(NAME): $(FULL_OBJ)
+$(NAME): $(OBJ)
 		ar rc $(NAME) $(OBJ)
 		ranlib $(NAME)
 
-bonus:
-		make WITH_BONUS=1 all
+bonus:			all $(BONUS_OBJ)
+		ar rc $(NAME) $(BONUS_OBJ)
+		ranlib $(NAME)
 
 clean:
 		rm -f $(OBJ) $(BONUS_OBJ)
