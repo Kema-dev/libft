@@ -6,7 +6,17 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/01/11 11:55:39 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/01/23 14:07:50 by jjourdan         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
+# *******************************    POST-IT    ****************************** #
+#                                                                              #
+#			## $@ 	Le nom de la cible										   #
+#			## $< 	Le nom de la première dépendance						   #
+#			## $^ 	La liste des dépendances								   #
+#			## $? 	La liste des dépendances plus récentes que la cible		   #
+#			## $* 	Le nom du fichier sans suffixe							   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +25,8 @@ FLAGS		=	-Wall -Wextra -Werror
 NAME		=	libft.a
 
 CC			=	gcc
+
+RM			=	rm -f
 
 HEADER		=	libft.h
 
@@ -54,12 +66,8 @@ SRC			=	ft_putchar.c \
 				ft_putstr_fd.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c \
-				ft_strmapi.c
-
-
-OBJ			=	$(SRC:.c=.o)
-
-BONUS		=	ft_lstnew.c \
+				ft_strmapi.c \
+				ft_lstnew.c \
 				ft_lstadd_front.c \
 				ft_lstsize.c \
 				ft_lstlast.c \
@@ -69,27 +77,22 @@ BONUS		=	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
-BONUS_OBJ	=	$(BONUS:.c=.o)
+OBJ			=	$(SRC:.c=.o)
 
 all:			$(NAME)
 
 $(NAME): $(OBJ)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
-
-bonus:			all $(BONUS_OBJ)
-		ar rc $(NAME) $(BONUS_OBJ)
-		ranlib $(NAME)
+		ar rcs $(NAME) $?
 
 clean:
-		rm -f $(OBJ) $(BONUS_OBJ)
+		$(RM) $(OBJ)
 
 %.o: %.c		$(HEADER)
 		$(CC) $(FLAGS) -c $< -o $@
 
 fclean:			clean
-		rm -f $(NAME)
+		$(RM) $(NAME)
 
 re:				fclean all
 
-.PHONY: all, clean, fclean, re, bonus
+.PHONY: all, clean, fclean, re
