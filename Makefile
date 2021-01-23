@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/01/23 14:07:50 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/01/23 14:27:03 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,15 @@ CC			=	gcc
 
 RM			=	rm -f
 
-HEADER		=	libft.h
+INC_DIR	=	includes/
 
-SRC			=	ft_putchar.c \
+INCLUDES	=	libft.h
+
+INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
+
+SRCS_DIR	=	sources/
+
+SRCS		=	ft_putchar.c \
 				ft_strlen.c \
 				ft_isalpha.c \
 				ft_isdigit.c \
@@ -77,18 +83,20 @@ SRC			=	ft_putchar.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
-OBJ			=	$(SRC:.c=.o)
+SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
+
+OBJS		=	$(SRCS_FULL:.c=.o)
 
 all:			$(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJS)
 		ar rcs $(NAME) $?
 
-clean:
-		$(RM) $(OBJ)
+%.o: %.c		$(INC_FULL)
+		$(CC) -I $(INC_DIR) $(FLAGS) -c $< -o $@
 
-%.o: %.c		$(HEADER)
-		$(CC) $(FLAGS) -c $< -o $@
+clean:
+		$(RM) $(OBJS)
 
 fclean:			clean
 		$(RM) $(NAME)
