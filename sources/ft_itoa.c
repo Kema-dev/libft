@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:58:09 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:41:13 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/18 14:53:50 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static size_t	get_pow(long long n)
 	return (pow_ten);
 }
 
-static char		*out_fill(char *out, long long num, int neg, int n)
+static char	*out_fill(char *out, long long num, int neg, int n)
 {
 	size_t	last;
 	size_t	curr;
@@ -78,7 +78,7 @@ static char		*out_fill(char *out, long long num, int neg, int n)
 	return (out);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long long	num;
 	int			neg;
@@ -91,7 +91,8 @@ char			*ft_itoa(int n)
 		neg = 1;
 		num *= -1;
 	}
-	if (!(out = ft_calloc(sizeof(char), (get_size(num) + 1 + neg))))
+	out = ft_calloc(sizeof(char), (get_size(num) + 1 + neg));
+	if (!out)
 		return (NULL);
 	out_fill(out, num, neg, n);
 	return (out);

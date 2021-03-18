@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:44:00 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/18 14:57:50 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*out;
 
 	tot_len = ft_strlen(s1) + ft_strlen(s2);
-	if (!(out = ft_calloc(sizeof(char), (tot_len + 1))))
+	out = ft_calloc(sizeof(char), (tot_len + 1));
+	if (!out)
 		return (NULL);
 	ft_strcat(out, (char *)s1);
 	ft_strcat(out, (char *)s2);

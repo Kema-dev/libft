@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:45 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:42:49 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/18 14:57:36 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(const char *s)
 	if (!s)
 		return (NULL);
 	i = 0;
-	if (!(dup = malloc(sizeof(*s) * (ft_strlen(s) + 1))))
+	dup = malloc(sizeof(*s) * (ft_strlen(s) + 1));
+	if (!dup)
 		return (NULL);
 	while (s[i] != 0)
 	{

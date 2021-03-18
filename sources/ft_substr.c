@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:42 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/06 13:41:24 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/18 15:00:19 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ static char	*fill_out(size_t i, unsigned int start, char *str, \
 		out[j] = str[j + start];
 		j++;
 	}
-	out[j] = 0;
 	return (out);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t			i;
 	char			*str;
@@ -39,14 +38,16 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 	i = ft_strlen(s);
 	if (start >= i)
 	{
-		if (!(out = ft_calloc(sizeof(char), 1)))
+		out = ft_calloc(sizeof(char), 1);
+		if (!out)
 			return (NULL);
 		*out = 0;
 		return (out);
 	}
 	if (i > start + len)
 		i = start + len;
-	if (!(out = ft_calloc(sizeof(char), (i - start + 1))))
+	out = ft_calloc(sizeof(char), (i - start + 1));
+	if (!out)
 		return (NULL);
 	out = fill_out(i, start, str, out);
 	return (out);

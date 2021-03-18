@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 01:59:59 by jjourdan          #+#    #+#             */
-/*   Updated: 2020/12/05 15:42:32 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/18 14:55:02 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	manage_min(int n, int fd)
 		ft_putchar_fd('0', fd);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int		i;
 	char	c[10];
