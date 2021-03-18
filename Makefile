@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/01/23 14:27:03 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/18 15:02:45 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,6 @@ SRCS		=	ft_putchar.c \
 				ft_substr.c \
 				ft_strjoin.c \
 				ft_strtrim.c \
-				ft_my_split.c \
 				ft_split.c \
 				ft_itoa.c \
 				ft_putchar_fd.c \
