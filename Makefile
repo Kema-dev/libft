@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/18 15:02:45 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/19 10:55:36 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ RM			=	rm -f
 
 INC_DIR	=	includes/
 
-INCLUDES	=	libft.h
+INCLUDES	=	libft.h \
+				gnl.h
 
 INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
 
@@ -80,7 +81,9 @@ SRCS		=	ft_putchar.c \
 				ft_lstdelone.c \
 				ft_lstclear.c \
 				ft_lstiter.c \
-				ft_lstmap.c
+				ft_lstmap.c \
+				ft_gnl_1.c \
+				ft_gnl_2.c
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
 
