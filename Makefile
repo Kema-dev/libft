@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/19 10:55:36 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/19 11:31:59 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@
 
 FLAGS		=	-Wall -Wextra -Werror
 
-NAME		=	libft.a
+NAME		=	libkema.a
 
 CC			=	gcc
 
@@ -31,13 +31,16 @@ RM			=	rm -f
 INC_DIR	=	includes/
 
 INCLUDES	=	libft.h \
-				gnl.h
+				gnl.h \
+				ft_printf.h
 
 INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
 
 SRCS_DIR	=	sources/
 
-SRCS		=	ft_putchar.c \
+LIBFT_DIR	=	libft/
+
+LIBFT_SRCS	=	ft_putchar.c \
 				ft_strlen.c \
 				ft_isalpha.c \
 				ft_isdigit.c \
@@ -81,11 +84,54 @@ SRCS		=	ft_putchar.c \
 				ft_lstdelone.c \
 				ft_lstclear.c \
 				ft_lstiter.c \
-				ft_lstmap.c \
-				ft_gnl_1.c \
+				ft_lstmap.c
+
+LIBFT_FULL	=	$(addprefix $(LIBFT_DIR), $(LIBFT_SRCS))
+
+GNL_DIR		=	gnl/
+
+GNL_SRCS	=	ft_gnl_1.c \
 				ft_gnl_2.c
 
-SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
+GNL_FULL	=	$(addprefix $(GNL_DIR), $(GNL_SRCS))
+
+PRINTF_DIR	=	ft_printf/
+
+PRINTF_SRCS	=	sources/utils/ft_printf_atoi.c \
+				sources/utils/ft_printf_itoa.c \
+				sources/utils/ft_printf_memset.c \
+				sources/utils/ft_printf_putchar_fd.c \
+				sources/utils/ft_printf_strlen.c \
+				sources/utils/ft_printf_utoa.c \
+				sources/utils/ft_printf_xtoa.c \
+				sources/utils/ft_printf_putstr_fd.c \
+				sources/utils/ft_printf_calloc.c \
+				sources/utils/ft_printf_ptoa.c \
+				sources/ft_printf_flag_init.c \
+				sources/ft_printf_flag_reset.c \
+				sources/ft_printf_get_add_flags.c \
+				sources/ft_printf_get_first_flags.c \
+				sources/ft_printf_get_flag.c \
+				sources/ft_printf_get_prec.c \
+				sources/ft_printf_get_type.c \
+				sources/ft_printf_get_width.c \
+				sources/ft_printf_print_c.c \
+				sources/ft_printf_print_s.c \
+				sources/ft_printf_print_x.c \
+				sources/ft_printf.c \
+				sources/ft_printf_treat_flag.c \
+				sources/ft_printf_treat_input.c \
+				sources/ft_printf_print_normal.c \
+				sources/ft_printf_print_percent.c \
+				sources/ft_printf_print_p.c
+
+PRINTF_FULL	=	$(addprefix $(PRINTF_DIR), $(PRINTF_SRCS))
+
+ALL_SRCS	+=	$(LIBFT_FULL)
+ALL_SRCS	+=	$(GNL_FULL)
+ALL_SRCS	+=	$(PRINTF_FULL)
+
+SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(ALL_SRCS))
 
 OBJS		=	$(SRCS_FULL:.c=.o)
 
