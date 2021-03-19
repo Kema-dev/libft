@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:33:45 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 10:55:37 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/19 13:17:36 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_gnl_get_line(char *save)
 	i = 0;
 	while ((save[i] != '\n') && (save[i] != 0))
 		i++;
-	out = malloc(sizeof(char) * (i + 1));
+	out = malloc(sizeof(char) * i + 1);
 	if (!out)
 		return (NULL);
 	out[i] = 0;
@@ -71,9 +71,9 @@ int	get_next_line(int fd, char **line)
 	int			head;
 
 	head = 1;
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if ((fd < 0) || (!line) || (BUFFER_SIZE <= 0) || !buf)
-		return (-1);
+		return (ft_gnl_error_exit(save, buf));
 	while ((ft_gnl_new_line(save) != 0) && (head != 0))
 	{
 		head = read(fd, buf, BUFFER_SIZE);
