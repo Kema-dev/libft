@@ -1,6 +1,3 @@
 # libft
-My 42 Lyon's libft
 
-Result : 115 / 100
-
-Added get_next_line and `d`printf projects
+Added get_next_line and dprintf
