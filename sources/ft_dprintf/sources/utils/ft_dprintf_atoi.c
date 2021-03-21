@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_print_c.c                                :+:      :+:    :+:   */
+/*   ft_dprintf_atoi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 15:56:18 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:18:04 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/30 14:14:53 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/01/22 12:35:41 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-void	ft_printf_print_c(va_list args, t_flag *flag)
+int	ft_dprintf_atoi(const char *nptr)
 {
-	if (flag->minus != 0)
+	unsigned int	n;
+	int				neg;
+
+	neg = 1;
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		while (flag->width > 1)
-			ft_printf_putchar_fd(' ', flag);
-		ft_printf_putchar_fd(va_arg(args, int), flag);
+		if (*nptr == '-')
+			neg = -1;
+		nptr++;
 	}
-	else
+	if (*nptr < '0' || *nptr > '9')
+		return (0);
+	n = 0;
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		ft_printf_putchar_fd(va_arg(args, int), flag);
-		while (flag->width > 0)
-			ft_printf_putchar_fd(' ', flag);
+		n = n * 10 + *nptr - '0';
+		nptr++;
 	}
+	n *= neg;
+	return (n);
 }

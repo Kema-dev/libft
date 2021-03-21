@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_flag.c                               :+:      :+:    :+:   */
+/*   ft_dprintf_get_flag.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-int	ft_printf_get_flag(const char *input, va_list args, t_flag *flag)
+int	ft_dprintf_get_flag(const char *input, va_list args, t_flag *flag)
 {
 	size_t	i;
 
 	i = 0;
-	i += ft_printf_get_first_flags(&input[i], flag, args);
-	i += ft_printf_get_width(&input[i], args, flag);
-	i += ft_printf_get_prec(&input[i], args, flag);
-	i += ft_printf_get_add_flags(&input[i], flag);
-	i += ft_printf_get_type(&input[i], flag);
+	i += ft_dprintf_get_first_flags(&input[i], flag, args);
+	i += ft_dprintf_get_width(&input[i], args, flag);
+	i += ft_dprintf_get_prec(&input[i], args, flag);
+	i += ft_dprintf_get_add_flags(&input[i], flag);
+	i += ft_dprintf_get_type(&input[i], flag);
 	if ((flag->width < 0) && (flag->width != -1))
 	{
 		flag->minus = 0;

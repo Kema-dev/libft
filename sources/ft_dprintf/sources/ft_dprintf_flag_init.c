@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_print_percent.c                          :+:      :+:    :+:   */
+/*   ft_dprintf_flag_init.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 15:48:44 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:18:45 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/30 15:05:20 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/01/23 12:09:17 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-int	ft_printf_print_percent(int i, t_flag *flag)
+t_flag	*ft_dprintf_flag_init(t_flag *flag)
 {
-	if (flag->width > 0)
-		i += flag->width;
-	else
-		i++;
-	if (flag->minus != 0)
-	{
-		while (flag->width > 1)
-			ft_printf_putchar_fd(flag->zero, flag);
-		ft_printf_putchar_fd('%', flag);
-	}
-	else
-	{
-		ft_printf_putchar_fd('%', flag);
-		while (flag->width > 0)
-			ft_printf_putchar_fd(' ', flag);
-	}
-	return (i);
+	flag->minus = -1;
+	flag->plus = -1;
+	flag->space = -1;
+	flag->zero = ' ';
+	flag->hashtag = -1;
+	flag->width = -1;
+	flag->prec = -1;
+	flag->type = -1;
+	flag->add_flags = -1;
+	flag->tot_len = 0;
+	return (flag);
 }

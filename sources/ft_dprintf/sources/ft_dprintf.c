@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_flag_reset.c                             :+:      :+:    :+:   */
+/*   ft_dprintf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 15:08:29 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/01/23 12:09:22 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/30 14:21:08 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/21 14:42:42 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-t_flag	*ft_printf_flag_reset(t_flag *flag)
+int	ft_dprintf(int fd, const char *input, ...)
 {
-	flag->minus = -1;
-	flag->plus = -1;
-	flag->space = -1;
-	flag->zero = ' ';
-	flag->hashtag = -1;
-	flag->width = -1;
-	flag->prec = -1;
-	flag->type = -1;
-	flag->add_flags = -1;
-	return (flag);
+	va_list		args;
+	t_flag		*flag;
+	int			val;
+
+	val = 0;
+	flag = malloc(sizeof(t_flag));
+	if (!flag)
+		return (-1);
+	flag->fd = fd;
+	va_start(args, input);
+	val = ft_dprintf_treat_input(input, args, flag);
+	va_end(args);
+	if (val == 0)
+		val = flag->tot_len;
+	free(flag);
+	return (val);
 }

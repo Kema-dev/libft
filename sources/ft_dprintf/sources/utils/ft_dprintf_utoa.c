@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_itoa.c                                   :+:      :+:    :+:   */
+/*   ft_dprintf_utoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 14:17:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:01:07 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/30 16:37:45 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/21 14:20:46 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-static size_t	get_size(int n)
+static size_t	get_size(unsigned int n)
 {
-	size_t		size;
-	long long	num;
+	size_t			size;
+	unsigned long	num;
 
 	size = 0;
 	num = n;
-	if (num < 0)
-		num *= -1;
 	while (num >= 10)
 	{
 		num /= 10;
@@ -29,7 +27,7 @@ static size_t	get_size(int n)
 	return (size + 1);
 }
 
-static size_t	get_pow(long long n)
+static size_t	get_pow(unsigned int n)
 {
 	size_t	pow;
 	size_t	pow_ten;
@@ -49,7 +47,7 @@ static size_t	get_pow(long long n)
 	return (pow_ten);
 }
 
-static char	*out_fill(char *out, long long num, int neg, int n)
+static char	*out_fill(char *out, unsigned int num, unsigned int n)
 {
 	size_t	last;
 	size_t	curr;
@@ -57,14 +55,8 @@ static char	*out_fill(char *out, long long num, int neg, int n)
 
 	last = 0;
 	curr = 0;
-	prev_pow = 0;
-	if (neg == 1)
-	{
-		out[curr] = '-';
-		curr++;
-	}
 	prev_pow = get_pow(num);
-	while (curr != (get_size(n) - 1 + neg))
+	while (curr != (get_size(n) - 1))
 	{
 		last = num / prev_pow;
 		num -= last * prev_pow;
@@ -78,22 +70,15 @@ static char	*out_fill(char *out, long long num, int neg, int n)
 	return (out);
 }
 
-char	*ft_printf_itoa(int n)
+char	*ft_dprintf_utoa(unsigned int n)
 {
-	long long	num;
-	int			neg;
-	char		*out;
+	unsigned int		num;
+	char				*out;
 
 	num = n;
-	neg = 0;
-	if (num < 0)
-	{
-		neg = 1;
-		num *= -1;
-	}
-	out = ft_printf_calloc(sizeof(char), (get_size(num) + 1 + neg));
+	out = ft_dprintf_calloc(sizeof(char), (get_size(num) + 1));
 	if (!out)
 		return (NULL);
-	out_fill(out, num, neg, n);
+	out_fill(out, num, n);
 	return (out);
 }

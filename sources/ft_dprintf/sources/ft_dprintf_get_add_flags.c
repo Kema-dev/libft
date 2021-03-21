@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_add_flags.c                          :+:      :+:    :+:   */
+/*   ft_dprintf_get_add_flags.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 15:29:04 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/01/23 12:09:20 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/21 14:21:27 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-int	ft_printf_get_add_flags(const char *input, t_flag *flag)
+int	ft_dprintf_get_add_flags(const char *input, t_flag *flag)
 {
 	size_t	i;
 

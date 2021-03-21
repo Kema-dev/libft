@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_ptoa.c                                   :+:      :+:    :+:   */
+/*   ft_dprintf_ptoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:59:28 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:00:42 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/21 14:20:23 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
 static char	*treat_base(unsigned long long ull_save, char *out, int count)
 {
@@ -31,10 +31,10 @@ static char	*treat_base(unsigned long long ull_save, char *out, int count)
 	return (out);
 }
 
-char	*ft_printf_ptoa(unsigned long long ull, t_flag *flag)
+char	*ft_dprintf_ptoa(unsigned long long ull, t_flag *flag)
 {
-	unsigned long long	ull_save;
 	char				*out;
+	unsigned long long	ull_save;
 	int					count;
 
 	out = 0;
@@ -45,7 +45,7 @@ char	*ft_printf_ptoa(unsigned long long ull, t_flag *flag)
 		ull /= 16;
 		count++;
 	}
-	out = ft_printf_calloc(sizeof(char), (count + 2 + 1));
+	out = ft_dprintf_calloc(sizeof(char), (count + 2 + 1));
 	if (!out)
 		return (NULL);
 	out = treat_base(ull_save, out, count);

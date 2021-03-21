@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_strlen.c                                 :+:      :+:    :+:   */
+/*   ft_dprintf_calloc.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 14:16:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:00:18 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/12/14 18:10:05 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/21 14:19:47 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-size_t	ft_printf_strlen(const char *s)
+void	*ft_dprintf_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
+	char	*tab;
 
-	i = 0;
-	while (s[i] != 0)
-		i++;
-	return (i);
+	tab = malloc(size * nmemb);
+	if (!tab)
+		return (NULL);
+	ft_dprintf_memset(tab, 0, size * nmemb);
+	return (tab);
 }

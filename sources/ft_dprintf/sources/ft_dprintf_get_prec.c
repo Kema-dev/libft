@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_calloc.c                                 :+:      :+:    :+:   */
+/*   ft_dprintf_get_prec.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 18:10:05 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:01:19 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/30 15:26:57 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/01/23 12:10:00 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-void	*ft_printf_calloc(size_t nmemb, size_t size)
+int	ft_dprintf_get_prec(const char *input, va_list args, t_flag *flag)
 {
-	char	*tab;
+	size_t	i;
 
-	tab = malloc(size * nmemb);
-	if (!tab)
-		return (NULL);
-	ft_printf_memset(tab, 0, size * nmemb);
-	return (tab);
+	i = 0;
+	if (input[i] == '.')
+	{
+		i++;
+		if (input[i] != '*')
+		{
+			flag->prec = ft_dprintf_atoi(&input[i]);
+			while ((input[i] >= '0') && (input[i] <= '9'))
+				i++;
+		}
+		else
+		{
+			flag->prec = va_arg(args, int);
+			i++;
+		}
+	}
+	return (i);
 }

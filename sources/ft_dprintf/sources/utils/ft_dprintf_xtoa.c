@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utoa.c                                   :+:      :+:    :+:   */
+/*   ft_dprintf_xtoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 16:37:45 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 11:00:13 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/11/30 16:33:34 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/21 14:21:15 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
 static size_t	get_size(unsigned int n)
 {
@@ -19,9 +19,9 @@ static size_t	get_size(unsigned int n)
 
 	size = 0;
 	num = n;
-	while (num >= 10)
+	while (num >= 16)
 	{
-		num /= 10;
+		num /= 16;
 		size++;
 	}
 	return (size + 1);
@@ -34,20 +34,21 @@ static size_t	get_pow(unsigned int n)
 
 	pow = 0;
 	pow_ten = 1;
-	while (n >= 10)
+	while (n >= 16)
 	{
-		n /= 10;
+		n /= 16;
 		pow++;
 	}
 	while (pow != 0)
 	{
-		pow_ten *= 10;
+		pow_ten *= 16;
 		pow--;
 	}
 	return (pow_ten);
 }
 
-static char	*out_fill(char *out, unsigned int num, unsigned int n)
+static char	*out_fill(char *out, unsigned int num, \
+							unsigned int n, char *base)
 {
 	size_t	last;
 	size_t	curr;
@@ -60,25 +61,39 @@ static char	*out_fill(char *out, unsigned int num, unsigned int n)
 	{
 		last = num / prev_pow;
 		num -= last * prev_pow;
-		out[curr] = last + 48;
+		out[curr] = base[last];
 		curr++;
-		prev_pow /= 10;
+		prev_pow /= 16;
 	}
 	last = num / get_pow(num);
 	num -= last * get_pow(num);
-	out[curr] = last + 48;
+	out[curr] = base[last];
 	return (out);
 }
 
-char	*ft_printf_utoa(unsigned int n)
+char	*ft_dprintf_xtoa(unsigned int n, t_flag *flag)
 {
 	unsigned int		num;
 	char				*out;
+	char				*base;
+	int					p;
 
 	num = n;
-	out = ft_printf_calloc(sizeof(char), (get_size(num) + 1));
+	p = 0;
+	base = "0123456789abcdef";
+	if (flag->type == 'X')
+		base = "0123456789ABCDEF";
+	else if (flag->type == 'p')
+		p = 2;
+	out = ft_dprintf_calloc(sizeof(char), (get_size(num) + 1 + p));
 	if (!out)
 		return (NULL);
-	out_fill(out, num, n);
-	return (out);
+	if (flag->type == 'p')
+	{
+		out[0] = '0';
+		out[1] = 'x';
+		out += 2;
+	}
+	out_fill(out, num, n, base);
+	return (out - p);
 }

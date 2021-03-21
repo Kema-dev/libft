@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_memset.c                                 :+:      :+:    :+:   */
+/*   ft_dprintf_putstr_fd.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 14:18:28 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/01/22 12:35:52 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2020/12/09 14:34:16 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/21 14:39:16 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-void	*ft_printf_memset(void *s, int c, size_t n)
+void	ft_dprintf_putstr_fd(char *str, t_flag *flag)
 {
-	unsigned char	*p;
+	size_t	len;
 
-	p = (unsigned char *)s;
-	while (n > 0)
-	{
-		p[n - 1] = c;
-		n--;
-	}
-	return (s);
+	len = ft_dprintf_strlen(str);
+	write(flag->fd, str, len);
+	flag->tot_len += len;
 }

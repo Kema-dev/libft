@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/19 11:31:59 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/21 15:34:56 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ INC_DIR	=	includes/
 
 INCLUDES	=	libft.h \
 				gnl.h \
-				ft_printf.h
+				ft_dprintf.h
 
 INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
 
@@ -95,35 +95,35 @@ GNL_SRCS	=	ft_gnl_1.c \
 
 GNL_FULL	=	$(addprefix $(GNL_DIR), $(GNL_SRCS))
 
-PRINTF_DIR	=	ft_printf/
+PRINTF_DIR	=	ft_dprintf/
 
-PRINTF_SRCS	=	sources/utils/ft_printf_atoi.c \
-				sources/utils/ft_printf_itoa.c \
-				sources/utils/ft_printf_memset.c \
-				sources/utils/ft_printf_putchar_fd.c \
-				sources/utils/ft_printf_strlen.c \
-				sources/utils/ft_printf_utoa.c \
-				sources/utils/ft_printf_xtoa.c \
-				sources/utils/ft_printf_putstr_fd.c \
-				sources/utils/ft_printf_calloc.c \
-				sources/utils/ft_printf_ptoa.c \
-				sources/ft_printf_flag_init.c \
-				sources/ft_printf_flag_reset.c \
-				sources/ft_printf_get_add_flags.c \
-				sources/ft_printf_get_first_flags.c \
-				sources/ft_printf_get_flag.c \
-				sources/ft_printf_get_prec.c \
-				sources/ft_printf_get_type.c \
-				sources/ft_printf_get_width.c \
-				sources/ft_printf_print_c.c \
-				sources/ft_printf_print_s.c \
-				sources/ft_printf_print_x.c \
-				sources/ft_printf.c \
-				sources/ft_printf_treat_flag.c \
-				sources/ft_printf_treat_input.c \
-				sources/ft_printf_print_normal.c \
-				sources/ft_printf_print_percent.c \
-				sources/ft_printf_print_p.c
+PRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
+				sources/utils/ft_dprintf_itoa.c \
+				sources/utils/ft_dprintf_memset.c \
+				sources/utils/ft_dprintf_putchar_fd.c \
+				sources/utils/ft_dprintf_strlen.c \
+				sources/utils/ft_dprintf_utoa.c \
+				sources/utils/ft_dprintf_xtoa.c \
+				sources/utils/ft_dprintf_putstr_fd.c \
+				sources/utils/ft_dprintf_calloc.c \
+				sources/utils/ft_dprintf_ptoa.c \
+				sources/ft_dprintf_flag_init.c \
+				sources/ft_dprintf_flag_reset.c \
+				sources/ft_dprintf_get_add_flags.c \
+				sources/ft_dprintf_get_first_flags.c \
+				sources/ft_dprintf_get_flag.c \
+				sources/ft_dprintf_get_prec.c \
+				sources/ft_dprintf_get_type.c \
+				sources/ft_dprintf_get_width.c \
+				sources/ft_dprintf_print_c.c \
+				sources/ft_dprintf_print_s.c \
+				sources/ft_dprintf_print_x.c \
+				sources/ft_dprintf.c \
+				sources/ft_dprintf_treat_flag.c \
+				sources/ft_dprintf_treat_input.c \
+				sources/ft_dprintf_print_normal.c \
+				sources/ft_dprintf_print_percent.c \
+				sources/ft_dprintf_print_p.c
 
 PRINTF_FULL	=	$(addprefix $(PRINTF_DIR), $(PRINTF_SRCS))
 
