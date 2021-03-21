@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/21 15:34:56 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/21 16:13:14 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,7 @@ PRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
 				sources/ft_dprintf_treat_input.c \
 				sources/ft_dprintf_print_normal.c \
 				sources/ft_dprintf_print_percent.c \
-				sources/ft_dprintf_print_p.c
+				sources/ft_dprintf_print_p.c \
 
 PRINTF_FULL	=	$(addprefix $(PRINTF_DIR), $(PRINTF_SRCS))
 
@@ -133,7 +133,12 @@ ALL_SRCS	+=	$(PRINTF_FULL)
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(ALL_SRCS))
 
+DEBUG_FULL	+=	$(SRCS_FULL)
+DEBUG_FULL	+=	main.c
+
 OBJS		=	$(SRCS_FULL:.c=.o)
+
+DEBUG_OBJS	=	$(DEBUG_FULL:.c=.o)
 
 all:			$(NAME)
 
@@ -142,6 +147,9 @@ $(NAME): $(OBJS)
 
 %.o: %.c		$(INC_FULL)
 		$(CC) -I $(INC_DIR) $(FLAGS) -c $< -o $@
+
+debug:			all $(DEBUG_OBJS)
+		$(CC) -Wall -Wextra -I $(INC_DIR) $(NAME) $(DEBUG_OBJS) -o debug.out
 
 clean:
 		$(RM) $(OBJS)
