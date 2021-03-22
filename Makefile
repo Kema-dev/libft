@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/22 12:53:43 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/22 11:28:27 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	PROJECT_NAME
+NAME		=	my_project
 
-ARGS		=	
+ARGS		=	foo bar
 
 CC			=	gcc
 
@@ -36,14 +36,13 @@ DEBUG_OUT	=	debug.out
 
 INCS_DIR	=	includes/
 
-INCS		=	project_name.h
+INCS		=	my_project.h
 
 INCS_FULL	=	$(addprefix $(INCS_DIR), $(INCS))
 
 SRCS_DIR	=	sources/
 
-SRCS		=	ft_libkema_test.c \
-				libkema_test.c
+SRCS		=	main.c
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
 
@@ -65,7 +64,7 @@ all:			libraries $(NAME)
 				$(CC) $(FLAGS) -I $(INCS_DIR) -c $< -o $@
 
 $(NAME): 		$(OBJS)
-				$(CC) -I $(INCS_DIR) $(LIBS_FILES) $(OBJS) -o $(NAME)
+				$(CC) -I $(INCS_DIR) $(OBJS) $(LIBS_FILES) -o $(NAME)
 
 libraries:
 				$(foreach lib,$(LIBS_FULL), $(MAKE_SUB) $(lib))
@@ -76,8 +75,14 @@ norme:			fclean
 				norminette $(SRCS_DIR)
 				norminette $(INCS_DIR)
 
+norme_check:	fclean
+				printf "\033c"
+				$(foreach lib,$(LIBS_FULL), norminette $(lib)) | grep " KO!" | wc -l
+				norminette $(SRCS_DIR) | grep " KO!" | wc -l
+				norminette $(INCS_DIR) | grep " KO!" | wc -l
+
 debug:			libraries $(OBJS)
-				$(CC) $(DEBUG_FLAGS) $(LIBS_FILES) $(OBJS) -o $(DEBUG_OUT)
+				$(CC) -I $(INCS_DIR) $(DEBUG_FLAGS) $(OBJS) $(LIBS_FILES) -o $(DEBUG_OUT)
 				printf "\033c"
 				./$(DEBUG_OUT) $(ARGS)
 
@@ -96,4 +101,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY: all, libs, norme, debug, leaks, clean, fclean, re
+.PHONY: all, libs, norme, norme_check, debug, leaks, clean, fclean, re
