@@ -1,3 +1,6 @@
-# project_name
+# libkema template
 
-project description
+Don't forget to rename :
+- header file
+- Makefile NAME
+- Makefile INCS

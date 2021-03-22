@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 14:19:20 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/21 15:40:34 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 11:35:44 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_flag
 {
-	int 	fd;
+	int		fd;
 	int		minus;
 	int		plus;
 	int		space;

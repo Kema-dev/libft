@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/22 11:26:34 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/22 12:53:43 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	PROJECT_NAME
 
 ARGS		=	
 
@@ -36,13 +36,14 @@ DEBUG_OUT	=	debug.out
 
 INCS_DIR	=	includes/
 
-INCS		=	
+INCS		=	project_name.h
 
 INCS_FULL	=	$(addprefix $(INCS_DIR), $(INCS))
 
 SRCS_DIR	=	sources/
 
-SRCS		=	
+SRCS		=	ft_libkema_test.c \
+				libkema_test.c
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
 
@@ -58,15 +59,15 @@ LIBS_FULL	=	$(addprefix $(LIBS_DIR), $(LIBS))
 
 LIBS_FILES	=	libs/libkema/libkema.a
 
-all:			libs $(NAME)
+all:			libraries $(NAME)
 
-%.o: 			%.c  $(INCS_FULL)
-				$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
+%.o: 			%.c $(INCS_FULL)
+				$(CC) $(FLAGS) -I $(INCS_DIR) -c $< -o $@
 
 $(NAME): 		$(OBJS)
-				$(CC) $(LIBS_FILES) $(OBJS) -o $(NAME)
+				$(CC) -I $(INCS_DIR) $(LIBS_FILES) $(OBJS) -o $(NAME)
 
-libs:
+libraries:
 				$(foreach lib,$(LIBS_FULL), $(MAKE_SUB) $(lib))
 
 norme:			fclean
@@ -75,7 +76,7 @@ norme:			fclean
 				norminette $(SRCS_DIR)
 				norminette $(INCS_DIR)
 
-debug:			libs $(OBJS)
+debug:			libraries $(OBJS)
 				$(CC) $(DEBUG_FLAGS) $(LIBS_FILES) $(OBJS) -o $(DEBUG_OUT)
 				printf "\033c"
 				./$(DEBUG_OUT) $(ARGS)
@@ -86,12 +87,12 @@ leaks:			all
 
 clean:
 				$(RM) $(OBJS)
-				$(foreach lib_dir,$(LIBS_DIR), $(MAKE_SUB) $(lib_dir) clean)
+				$(foreach lib_dir,$(LIBS_FULL), $(MAKE_SUB) $(lib_dir) clean)
 
 fclean:			clean
 				$(RM) $(NAME)
 				$(RM) $(DEBUG_OUT)
-				$(foreach lib_dir,$(LIBS_DIR), $(MAKE_SUB) $(lib_dir) fclean)
+				$(foreach lib_dir,$(LIBS_FULL), $(MAKE_SUB) $(lib_dir) fclean)
 
 re:				fclean all
 
