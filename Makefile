@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/21 16:13:14 by jjourdan         ###   ########lyon.fr    #
+#    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
+#    Updated: 2021/03/22 11:26:34 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,143 +20,79 @@
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS		=	-Wall -Wextra -Werror
+NAME		=	
 
-NAME		=	libkema.a
+ARGS		=	
 
 CC			=	gcc
 
 RM			=	rm -f
 
-INC_DIR	=	includes/
+FLAGS		=	-Wall -Wextra -Werror
 
-INCLUDES	=	libft.h \
-				gnl.h \
-				ft_dprintf.h
+DEBUG_FLAGS	=	-Wall -Wextra -fsanitize=address
 
-INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
+DEBUG_OUT	=	debug.out
+
+INCS_DIR	=	includes/
+
+INCS		=	
+
+INCS_FULL	=	$(addprefix $(INCS_DIR), $(INCS))
 
 SRCS_DIR	=	sources/
 
-LIBFT_DIR	=	libft/
+SRCS		=	
 
-LIBFT_SRCS	=	ft_putchar.c \
-				ft_strlen.c \
-				ft_isalpha.c \
-				ft_isdigit.c \
-				ft_isprint.c \
-				ft_isalnum.c \
-				ft_isascii.c \
-				ft_tolower.c \
-				ft_toupper.c \
-				ft_bzero.c \
-				ft_memset.c \
-				ft_memcpy.c \
-				ft_memccpy.c \
-				ft_memmove.c \
-				ft_memchr.c \
-				ft_memcmp.c \
-				ft_strncmp.c \
-				ft_strlcpy.c \
-				ft_atoi.c \
-				ft_strdup.c \
-				ft_strlcat.c \
-				ft_strrchr.c \
-				ft_strchr.c \
-				ft_strnstr.c \
-				ft_calloc.c \
-				ft_strcat.c \
-				ft_substr.c \
-				ft_strjoin.c \
-				ft_strtrim.c \
-				ft_split.c \
-				ft_itoa.c \
-				ft_putchar_fd.c \
-				ft_putstr_fd.c \
-				ft_putendl_fd.c \
-				ft_putnbr_fd.c \
-				ft_strmapi.c \
-				ft_lstnew.c \
-				ft_lstadd_front.c \
-				ft_lstsize.c \
-				ft_lstlast.c \
-				ft_lstadd_back.c \
-				ft_lstdelone.c \
-				ft_lstclear.c \
-				ft_lstiter.c \
-				ft_lstmap.c
-
-LIBFT_FULL	=	$(addprefix $(LIBFT_DIR), $(LIBFT_SRCS))
-
-GNL_DIR		=	gnl/
-
-GNL_SRCS	=	ft_gnl_1.c \
-				ft_gnl_2.c
-
-GNL_FULL	=	$(addprefix $(GNL_DIR), $(GNL_SRCS))
-
-PRINTF_DIR	=	ft_dprintf/
-
-PRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
-				sources/utils/ft_dprintf_itoa.c \
-				sources/utils/ft_dprintf_memset.c \
-				sources/utils/ft_dprintf_putchar_fd.c \
-				sources/utils/ft_dprintf_strlen.c \
-				sources/utils/ft_dprintf_utoa.c \
-				sources/utils/ft_dprintf_xtoa.c \
-				sources/utils/ft_dprintf_putstr_fd.c \
-				sources/utils/ft_dprintf_calloc.c \
-				sources/utils/ft_dprintf_ptoa.c \
-				sources/ft_dprintf_flag_init.c \
-				sources/ft_dprintf_flag_reset.c \
-				sources/ft_dprintf_get_add_flags.c \
-				sources/ft_dprintf_get_first_flags.c \
-				sources/ft_dprintf_get_flag.c \
-				sources/ft_dprintf_get_prec.c \
-				sources/ft_dprintf_get_type.c \
-				sources/ft_dprintf_get_width.c \
-				sources/ft_dprintf_print_c.c \
-				sources/ft_dprintf_print_s.c \
-				sources/ft_dprintf_print_x.c \
-				sources/ft_dprintf.c \
-				sources/ft_dprintf_treat_flag.c \
-				sources/ft_dprintf_treat_input.c \
-				sources/ft_dprintf_print_normal.c \
-				sources/ft_dprintf_print_percent.c \
-				sources/ft_dprintf_print_p.c \
-
-PRINTF_FULL	=	$(addprefix $(PRINTF_DIR), $(PRINTF_SRCS))
-
-ALL_SRCS	+=	$(LIBFT_FULL)
-ALL_SRCS	+=	$(GNL_FULL)
-ALL_SRCS	+=	$(PRINTF_FULL)
-
-SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(ALL_SRCS))
-
-DEBUG_FULL	+=	$(SRCS_FULL)
-DEBUG_FULL	+=	main.c
+SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
 
 OBJS		=	$(SRCS_FULL:.c=.o)
 
-DEBUG_OBJS	=	$(DEBUG_FULL:.c=.o)
+MAKE_SUB	=	make -C
 
-all:			$(NAME)
+LIBS_DIR	=	libs/
 
-$(NAME): $(OBJS)
-		ar rcs $(NAME) $?
+LIBS		=	libkema/
 
-%.o: %.c		$(INC_FULL)
-		$(CC) -I $(INC_DIR) $(FLAGS) -c $< -o $@
+LIBS_FULL	=	$(addprefix $(LIBS_DIR), $(LIBS))
 
-debug:			all $(DEBUG_OBJS)
-		$(CC) -Wall -Wextra -I $(INC_DIR) $(NAME) $(DEBUG_OBJS) -o debug.out
+LIBS_FILES	=	libs/libkema/libkema.a
+
+all:			libs $(NAME)
+
+%.o: 			%.c  $(INCS_FULL)
+				$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
+
+$(NAME): 		$(OBJS)
+				$(CC) $(LIBS_FILES) $(OBJS) -o $(NAME)
+
+libs:
+				$(foreach lib,$(LIBS_FULL), $(MAKE_SUB) $(lib))
+
+norme:			fclean
+				printf "\033c"
+				$(foreach lib,$(LIBS_FULL), norminette $(lib))
+				norminette $(SRCS_DIR)
+				norminette $(INCS_DIR)
+
+debug:			libs $(OBJS)
+				$(CC) $(DEBUG_FLAGS) $(LIBS_FILES) $(OBJS) -o $(DEBUG_OUT)
+				printf "\033c"
+				./$(DEBUG_OUT) $(ARGS)
+
+leaks:			all
+				printf "\033c"
+				leaks --atExit -- ./$(NAME) $(ARGS)
 
 clean:
-		$(RM) $(OBJS)
+				$(RM) $(OBJS)
+				$(foreach lib_dir,$(LIBS_DIR), $(MAKE_SUB) $(lib_dir) clean)
 
 fclean:			clean
-		$(RM) $(NAME)
+				$(RM) $(NAME)
+				$(RM) $(DEBUG_OUT)
+				$(foreach lib_dir,$(LIBS_DIR), $(MAKE_SUB) $(lib_dir) fclean)
 
 re:				fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, libs, norme, debug, leaks, clean, fclean, re
