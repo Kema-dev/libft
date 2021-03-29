@@ -1,6 +1,6 @@
 # libkema template
 
-Don't forget :
+Don't forget to :
 - rename header file
 - add errcodes in header file
 - change include path in header file to match the new name
