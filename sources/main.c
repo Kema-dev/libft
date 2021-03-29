@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/29 14:42:50 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 18:34:37 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 int	main(int argc, char **argv, char **envp)
 {
-	(void)argc;
-	(void)argv;
-	(void)envp;
 	t_list	*mem;
 	char	*str;
 
+	(void)argc;
+	(void)argv;
+	(void)envp;
 	mem = NULL;
 	str = kemalloc(&mem, 10, sizeof(char));
-	str[0] = 'T';
-	str[1] = 'e';
-	str[2] = 's';
-	str[3] = 't';
-	ft_kema_error(ENOMEM, &mem, &free);
+	ft_memcpy(str, "Hello,world!", 13);
+	ft_lstprint("%s", mem);
+	ft_kema_error(SUCCESS, &mem, &free);
 	return (SUCCESS);
 }
+// ? exit(ft_kema_error()) if exit accepted
