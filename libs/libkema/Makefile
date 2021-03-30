@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/29 13:31:46 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/30 11:51:33 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,9 +98,9 @@ GNL_SRCS	=	ft_gnl_1.c \
 
 GNL_FULL	=	$(addprefix $(GNL_DIR), $(GNL_SRCS))
 
-PRINTF_DIR	=	ft_dprintf/
+DPRINTF_DIR	=	ft_dprintf/
 
-PRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
+DPRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
 				sources/utils/ft_dprintf_itoa.c \
 				sources/utils/ft_dprintf_memset.c \
 				sources/utils/ft_dprintf_putchar_fd.c \
@@ -126,13 +126,13 @@ PRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
 				sources/ft_dprintf_treat_input.c \
 				sources/ft_dprintf_print_normal.c \
 				sources/ft_dprintf_print_percent.c \
-				sources/ft_dprintf_print_p.c \
+				sources/ft_dprintf_print_p.c
 
-PRINTF_FULL	=	$(addprefix $(PRINTF_DIR), $(PRINTF_SRCS))
+DPRINTF_FULL	=	$(addprefix $(DPRINTF_DIR), $(DPRINTF_SRCS))
 
 ALL_SRCS	+=	$(LIBFT_FULL)
 ALL_SRCS	+=	$(GNL_FULL)
-ALL_SRCS	+=	$(PRINTF_FULL)
+ALL_SRCS	+=	$(DPRINTF_FULL)
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(ALL_SRCS))
 
