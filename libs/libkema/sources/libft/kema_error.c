@@ -32,6 +32,6 @@ int	ft_kema_error(int errcode, t_list **lst, void (*del)(void*))
 	else if (errcode == SUCCESS)
 		ft_dprintf(STDOUT_FILENO, STR_SUCCESS);
 	else
-		ft_dprintf(STDERR_FILENO, "Error %d: %s\n", errcode, strerror(ENOMEM));
+		ft_dprintf(STDERR_FILENO, "Error %d: %s\n", errcode, strerror(errcode));
 	return (errcode);
 }
