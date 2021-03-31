@@ -32,7 +32,8 @@ INC_DIR	=	includes/
 
 INCLUDES	=	libft.h \
 				gnl.h \
-				ft_dprintf.h
+				ft_dprintf.h \
+				libkema.h
 
 INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
 
