@@ -16,12 +16,14 @@
 # include "../libs/libkema/includes/libkema.h"
 # include <stdbool.h>
 
+//	*	errors handlers
+
 # define SUCCESS		0
 # define STR_SUCCESS	"Operation success!"
 # define FAILURE		-1
 # define STR_FAILURE	"Operation failure!"
 
-//	*	struct declarations
+//	*	structs declarations
 
 //	*	functions prototypes
 
