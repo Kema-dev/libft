@@ -23,7 +23,7 @@
 
 //	*	struct declarations
 
-//	*	function prototypes
+//	*	functions prototypes
 
 //	*	main.c
 int	main(int argc, char **argv, char **envp);
