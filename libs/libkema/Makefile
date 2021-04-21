@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/30 11:51:33 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/04/21 17:49:10 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,8 +87,7 @@ LIBFT_SRCS	=	ft_putchar.c \
 				ft_lstiter.c \
 				ft_lstmap.c \
 				ft_lstprint.c \
-				kemalloc.c \
-				kema_error.c
+				kemalloc.c
 
 LIBFT_FULL	=	$(addprefix $(LIBFT_DIR), $(LIBFT_SRCS))
 

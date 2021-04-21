@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 11:35:30 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/21 17:57:45 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void \
 						(*del)(void *));
 void				ft_lstprint(char *format, t_list *lst);
-void				*kemalloc(t_list	**lst, size_t nmemb, size_t size);
-void				*kemalloc_exit(t_list	**lst, size_t nmemb, size_t size);
-int					ft_kema_error(int errcode, t_list **lst, \
-						void (*del)(void*));
+//t_list				**kemainit(void);
+void				*kemalloc(size_t nmemb, size_t size);
+int					kemafree(void	*ptr);
+void				kemaclear(void);
+int					kemaexit(int	errnum);
 
 #endif

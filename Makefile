@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/22 11:28:27 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/04/21 17:27:40 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,10 @@ debug:			libraries $(OBJS)
 				printf "\033c"
 				./$(DEBUG_OUT) $(ARGS)
 
+valgrind:		all
+				printf "\ec"
+				valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARGS) 
+
 leaks:			all
 				printf "\033c"
 				leaks --atExit -- ./$(NAME) $(ARGS)
@@ -101,4 +105,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY: all, libs, norme, norme_check, debug, leaks, clean, fclean, re
+.PHONY: all, libs, norme, norme_check, debug, valgrind, leaks, clean, fclean, re
