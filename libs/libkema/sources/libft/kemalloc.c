@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 08:47:22 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/21 18:41:36 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/21 18:43:24 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ int	kemafree(void *ptr)
 		if (curr->content == ptr)
 		{
 			free(ptr);
-			ptr = NULL;
 			free(curr);
-			curr = NULL;
 			if (prev)
 				prev->next = next;
 			else
