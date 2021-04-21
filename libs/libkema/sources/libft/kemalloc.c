@@ -6,13 +6,11 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 08:47:22 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/21 18:00:14 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/21 18:41:36 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libkema.h"
-
-#include <stdio.h>
 
 static t_list	**kemainit(void)
 {
@@ -30,13 +28,19 @@ void	*kemalloc(size_t nmemb, size_t size)
 		return (NULL);
 	elem = ft_calloc(nmemb, size);
 	if (!elem)
+	{
+		errno = ENOMEM;
 		exit(kemaexit(ENOMEM));
+	}
 	new_mem = ft_calloc(1, sizeof(t_list));
 	if (!new_mem)
 	{
 		free (elem);
+		errno = ENOMEM;
 		exit(kemaexit(ENOMEM));
 	}
+	new_mem->content = elem;
+	new_mem->next = NULL;
 	ft_lstadd_front(kemainit(), new_mem);
 	return (elem);
 }
@@ -44,11 +48,11 @@ void	*kemalloc(size_t nmemb, size_t size)
 int	kemafree(void *ptr)
 {
 	t_list	**beg;
-	//t_list	*prev;
+	t_list	*prev;
 	t_list	*curr;
 	t_list	*next;
 
-	//prev = 0;
+	prev = NULL;
 	beg = kemainit();
 	curr = *beg;
 	while (curr)
@@ -60,13 +64,13 @@ int	kemafree(void *ptr)
 			ptr = NULL;
 			free(curr);
 			curr = NULL;
-			//if (prev)
-			//	prev->next = next;
-			//else
-			*beg = next;
+			if (prev)
+				prev->next = next;
+			else
+				*beg = next;
 			return (EXIT_SUCCESS);
 		}
-		//prev = curr;
+		prev = curr;
 		curr = curr->next;
 	}
 	return (EXIT_FAILURE);
@@ -85,9 +89,9 @@ void	kemaclear(void)
 		buf = mem->next;
 		free(mem->content);
 		free(mem);
-		mem = buf->next;
+		mem = buf;
 	}
-	beg = 0;
+	beg = NULL;
 }
 
 int	kemaexit(int	errnum)
