@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:38:29 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:38:29 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:01:34 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*ft_dprintf_utoa(unsigned int n)
 	char				*out;
 
 	num = n;
-	out = ft_dprintf_calloc(sizeof(char), (get_size(num) + 1));
+	out = kemalloc(sizeof(char), (get_size(num) + 1));
 	if (!out)
 		return (NULL);
 	out_fill(out, num, n);

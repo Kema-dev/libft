@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:00:12 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/18 14:56:46 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:07:44 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static char	**ft_tab_free(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-		free(tab[i]);
+		kemafree(tab[i]);
 		i++;
 	}
-	free(tab);
+	kemafree(tab);
 	return (NULL);
 }
 
@@ -83,7 +83,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nb_strs = ft_get_nb_strs(s, c);
-	tab = ft_calloc(sizeof(char *), (nb_strs + 1));
+	tab = kemalloc(sizeof(char *), (nb_strs + 1));
 	if (!tab)
 		return (NULL);
 	i = 0;
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	while (i < nb_strs)
 	{
 		ft_get_next_str(&next_str, &next_str_len, c);
-		tab[i] = ft_calloc(sizeof(char), (next_str_len + 1));
+		tab[i] = kemalloc(sizeof(char), (next_str_len + 1));
 		if (!tab[i])
 			return (ft_tab_free(tab));
 		ft_strlcpy(tab[i], next_str, next_str_len + 1);

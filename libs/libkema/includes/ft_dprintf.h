@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 14:19:20 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:35:44 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:00:35 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
+# include "libft.h"
 
 typedef struct s_flag
 {
@@ -35,7 +36,6 @@ typedef struct s_flag
 }	t_flag;
 
 int					ft_dprintf_atoi(const char *nptr);
-void				*ft_dprintf_calloc(size_t nmemb, size_t size);
 char				*ft_dprintf_itoa(int n);
 void				*ft_dprintf_memset(void *s, int c, size_t n);
 char				*ft_dprintf_ptoa(unsigned long long ull, t_flag *flag);

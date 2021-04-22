@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:38:38 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:38:38 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:02:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_dprintf_xtoa(unsigned int n, t_flag *flag)
 		base = "0123456789ABCDEF";
 	else if (flag->type == 'p')
 		p = 2;
-	out = ft_dprintf_calloc(sizeof(char), (get_size(num) + 1 + p));
+	out = kemalloc(sizeof(char), (get_size(num) + 1 + p));
 	if (!out)
 		return (NULL);
 	if (flag->type == 'p')

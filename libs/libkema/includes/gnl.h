@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:35:21 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 10:55:38 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:10:13 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "libft.h"
 
 # define BUFFER_SIZE 64
 

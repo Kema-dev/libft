@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:38:02 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:38:02 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:00:25 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	*ft_dprintf_itoa(int n)
 		neg = 1;
 		num *= -1;
 	}
-	out = ft_dprintf_calloc(sizeof(char), (get_size(num) + 1 + neg));
+	out = kemalloc(sizeof(char), (get_size(num) + 1 + neg));
 	if (!out)
 		return (NULL);
 	out_fill(out, num, neg, n);

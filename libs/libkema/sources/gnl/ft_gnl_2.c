@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:54:32 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/19 10:55:34 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:12:17 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ char	*ft_gnl_strjoin(char *s1, char *s2)
 		return ((char *)s1);
 	i = ft_gnl_strlen(s1);
 	tot_len = i + ft_gnl_strlen(s2);
-	out = malloc(sizeof(char) * (tot_len + 1));
+	out = kemalloc((tot_len + 1), sizeof(char));
 	if (!out)
 		return (NULL);
 	*out = 0;
 	ft_gnl_strcat(out, (char *)s1, 0);
 	ft_gnl_strcat(out, (char *)s2, i);
 	out[tot_len] = 0;
-	free(s1);
+	kemafree(s1);
 	return (out);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:36:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:36:50 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:02:46 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	ft_dprintf_print_p(va_list args, t_flag *flag)
 		ft_dprintf_print_p_left(str, flag);
 	else
 		ft_dprintf_print_p_right(str, flag);
-	free(str);
+	kemafree(str);
 }

@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/04/21 17:49:10 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/04/22 13:59:36 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,6 @@ DPRINTF_SRCS	=	sources/utils/ft_dprintf_atoi.c \
 				sources/utils/ft_dprintf_utoa.c \
 				sources/utils/ft_dprintf_xtoa.c \
 				sources/utils/ft_dprintf_putstr_fd.c \
-				sources/utils/ft_dprintf_calloc.c \
 				sources/utils/ft_dprintf_ptoa.c \
 				sources/ft_dprintf_flag_init.c \
 				sources/ft_dprintf_flag_reset.c \

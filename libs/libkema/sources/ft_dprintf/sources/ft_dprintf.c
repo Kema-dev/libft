@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:36:14 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:36:15 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:03:29 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_dprintf(int fd, const char *input, ...)
 	int			val;
 
 	val = 0;
-	flag = malloc(sizeof(t_flag));
+	flag = kemalloc(1, sizeof(t_flag));
 	if (!flag)
 		return (-1);
 	flag->fd = fd;
@@ -28,6 +28,6 @@ int	ft_dprintf(int fd, const char *input, ...)
 	va_end(args);
 	if (val == 0)
 		val = flag->tot_len;
-	free(flag);
+	kemafree(flag);
 	return (val);
 }

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:38:10 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/22 11:38:13 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:00:53 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_dprintf_ptoa(unsigned long long ull, t_flag *flag)
 		ull /= 16;
 		count++;
 	}
-	out = ft_dprintf_calloc(sizeof(char), (count + 2 + 1));
+	out = kemalloc(sizeof(char), (count + 2 + 1));
 	if (!out)
 		return (NULL);
 	out = treat_base(ull_save, out, count);

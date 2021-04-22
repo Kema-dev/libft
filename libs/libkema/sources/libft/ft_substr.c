@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:42 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/18 15:00:19 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 14:08:50 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = ft_strlen(s);
 	if (start >= i)
 	{
-		out = ft_calloc(sizeof(char), 1);
+		out = kemalloc(sizeof(char), 1);
 		if (!out)
 			return (NULL);
 		*out = 0;
@@ -46,7 +46,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	if (i > start + len)
 		i = start + len;
-	out = ft_calloc(sizeof(char), (i - start + 1));
+	out = kemalloc(sizeof(char), (i - start + 1));
 	if (!out)
 		return (NULL);
 	out = fill_out(i, start, str, out);
